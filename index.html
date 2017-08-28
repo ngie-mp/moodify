@@ -3,14 +3,21 @@
   <head>
     <meta charset="utf-8">
     <title>Moodify App</title>
+    <link rel="stylesheet" href="node_modules/flexboxgrid/dist/flexboxgrid.css">
+    <link rel="stylesheet" href="css/app.css">
     <script type="text/javascript" src="node_modules/angular/angular.js"></script>
     <script type="text/javascript" src="node_modules/angular-route/angular-route.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
+    <script src="node_modules/angularjs-social-login/angularjs-social-login.js"></script>
   </head>
-  <body ng-controller="parentCtrl">
+  <body>
     {{ title }}
     {{ services.weather.tmp }}
      <h1>App</h1>
      <div ng-view></div>
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.js">
+    </script>
+    <script type="text/javascript" src="js/tools.js">
+    </script>
   </body>
 </html>
