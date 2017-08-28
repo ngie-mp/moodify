@@ -1,0 +1,15 @@
+{
+  "name": "moodiy-front",
+  "version": "0.0.1",
+  "description": "Work school project, with several api's ",
+  "main": "app.js ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Angie MP, Dimitri",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.11",
+    "sass": "^1.0.0-beta.2"
+  }
+}
