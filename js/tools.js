@@ -1,3 +1,5 @@
+/* Sign in & Sign out animation */
+
 $(function () {
     $(".btn").click(function () {
         $(".form-signin").toggleClass("form-signin-left");
@@ -21,4 +23,10 @@ $(function () {
     $(".btn-signin").click(function () {
         $("#form_connexion").submit();
     });
+});
+
+/* Login button */
+
+$(document).on('click', ".buttonRec", function () {
+  $(this).toggleClass("active");
 });

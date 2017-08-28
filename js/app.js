@@ -6,7 +6,8 @@ app.config(function($routeProvider) {
       controller : 'loginCtrl'
     }).
     when('/search/', {
-      templateUrl: 'partials/search.html'
+      templateUrl: 'partials/search.html',
+      controller : 'speechtCtrl'
     }).
     when('/home/', {
       templateUrl: 'partials/home.html'
@@ -15,8 +16,8 @@ app.config(function($routeProvider) {
 
 app.config(function(socialProvider){
   socialProvider.setGoogleKey("724346200475-sj3iure20vb2mse5m6ogjtsg9kb5qma2.apps.googleusercontent.com");
-  socialProvider.setLinkedInKey("YOUR LINKEDIN CLIENT ID");
-  socialProvider.setFbKey({appId: "YOUR FACEBOOK APP ID", apiVersion: "API VERSION"});
+  /*socialProvider.setLinkedInKey("YOUR LINKEDIN CLIENT ID");
+  socialProvider.setFbKey({appId: "YOUR FACEBOOK APP ID", apiVersion: "API VERSION"});*/
 });
 
 app.controller('parentCtrl', function parentCtrl($scope, $http) {
