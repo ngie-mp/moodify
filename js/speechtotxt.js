@@ -1,5 +1,5 @@
 app.controller('speechtCtrl', function speechtCtrl($scope, $http) {
-  var geocityfr = "";
+  $scope.title = 'search';
 
   var accessToken = "4b8289d60d15475f8380de1d4086aff6";
   var baseUrl = "https://api.api.ai/v1/";

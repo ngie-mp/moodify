@@ -10,7 +10,8 @@ app.config(function($routeProvider) {
       controller : 'speechtCtrl'
     }).
     when('/home/', {
-      templateUrl: 'partials/home.html'
+      templateUrl: 'partials/home.html',
+      controller : 'resultsCtrl'
     });
 });
 
@@ -20,15 +21,16 @@ app.config(function(socialProvider){
   socialProvider.setFbKey({appId: "YOUR FACEBOOK APP ID", apiVersion: "API VERSION"});*/
 });
 
-app.controller('parentCtrl', function parentCtrl($scope, $http) {
-  $scope.title = 'wtf';
+app.controller('resultsCtrl', function parentCtrl($scope, $http) {
+  $scope.title = 'result';
   $http.get('http://api.moodify.dev/api/home/lyon').then(function(response) {
     $scope.services = response.data.returns;
-    // console.log(response.data);
+    console.log(response.data);
   });
 });
 
 app.controller('loginCtrl', function($scope, socialLoginService) {
+  $scope.title = 'login';
   $scope.signout = function(){
     socialLoginService.logout();
     console.log($scope.userGoogle);
