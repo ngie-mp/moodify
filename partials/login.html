@@ -1,15 +1,16 @@
 <h1>{{ title }}</h1>
 <div class="container">
-    <div class="row center-xs logo">
-        <div class="col-xs-6">
-            <div>
-                <img src="/img/sun.png" alt="">
-                <div class="">
-                    <h1>Moodify app</h1>
-                </div>
-            </div>
+  <div class="row center-xs logo">
+    <div class="col-xs-6">
+      <div>
+        <img src="/img/sun.png" alt="">
+        <div class="">
+          <h1>Moodify app</h1>
         </div>
+      </div>
     </div>
+  </div>
+
   <div class="frame">
     <div class="nav-login">
       <ul class="links">
@@ -17,38 +18,58 @@
         <li class="signup-inactive"><a class="btn">S'inscrire</a></li>
       </ul>
     </div>
+
     <div class="form-wrap">
-      <form method="post" accept-charset="utf-8" class="form-signin" id="form_connexion" action="/connexion/connect"><div style="display:none;">
-        <input type="hidden" name="_method" value="POST"></div>                <label for="username">Email</label>
+      <form class="form-signin" id="form_connexion">
+        <label for="username">Email</label>
         <div class="input email">
-          <input type="email" name="email" class="form-styling" id="email">
+          <input type="email" class="form-styling" ng-model="email">
         </div>
-          <label for="password">Mot de passe</label>
+
+        <label for="password">Mot de passe</label>
         <div class="input password">
-          <input type="password" name="password" class="form-styling" id="password">
+          <input type="password" class="form-styling" ng-model="password">
         </div>
+
         <div class="btn-animate">
-          <a class="btn-signin">Se connecter</a>
+          <a class="btn-signin" ng-click="login()">Se connecter</a>
         </div>
+
         <div class="btn-animate-google">
-          <a class="btn-signin-google" href="/connexion/googlelogin">Se connecter via Google</a>
+          <a g-login class="btn-signin-google">Se connecter via Google</a>
         </div>
-        <button g-login type="button">Google Login</button>
-        <button ng-click="signout()" type="button">signout</button>
-	       <h4>result: {{userGoogle}}</h4>
-        </form>
-        <form class="form-signup" action="" method="post" name="form">
-            <label for="fullname">Full name</label>
-            <input class="form-styling" type="text" name="fullname" placeholder="">
-            <label for="email">Email</label>
-            <input class="form-styling" type="text" name="email" placeholder="">
-            <label for="password">Password</label>
-            <input class="form-styling" type="text" name="password" placeholder="">
-            <label for="confirmpassword">Confirm password</label>
-            <input class="form-styling" type="text" name="confirmpassword" placeholder="">
-            <a ng-click="checked = !checked" class="btn-signup">Sign Up</a>
-        </form>
+
+        <button ng-click="signout()" type="button">Se déco de google</button>
+        <h4>result: {{userGoogle}}</h4>
+      </form>
+
+      <form class="form-signup">
+        <label for="fullname">Firstname</label>
+        <input class="form-styling" type="text" ng-model="firstname" required>
+
+        <div ng-show="form.password.$error.required">Field required</div>
+
+        <label for="email">Lastname</label>
+        <input class="form-styling" type="text" ng-model="lastname" required>
+
+        <label for="email">Email</label>
+        <input class="form-styling" type="text" ng-model="email" required>
+
+        <label for="password">Password</label>
+        <input class="form-styling" type="password" ng-model="password" required equalsPassword="{{password_confirm}}">
+
+        <label for="confirmpassword">Confirm password</label>
+        <input class="form-styling" type="password" ng-model="password_confirm" required equalsPassword="{{password}}">
+
+        <div ng-show="form.password_confirm.$error.required">
+            Field required!</div>
+        <div ng-show="form.password_confirm.$error.passwordVerify">
+          Fields are not equal!</div>
+
+        <a ng-click="register()" class="btn-signup">S'inscrire</a>
+
+      </form>
+    </div>
   </div>
-</div>
 
 </div>

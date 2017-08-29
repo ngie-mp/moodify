@@ -1,5 +1,6 @@
-app.controller('speechtCtrl', function speechtCtrl($scope, $http) {
+app.controller('speechtCtrl', function speechtCtrl($scope, $http, user) {
   $scope.title = 'search';
+  $scope.user = user.getUser();
 
   var accessToken = "4b8289d60d15475f8380de1d4086aff6";
   var baseUrl = "https://api.api.ai/v1/";
@@ -70,7 +71,7 @@ app.controller('speechtCtrl', function speechtCtrl($scope, $http) {
      url: baseUrl + "query?v=20150910",
      headers: {
        'Content-Type': 'application/json; charset=utf-8',
-       "Authorization": "Bearer " + accessToken
+       "Authorization": "Bearer " + accessToken       
      },
      data: JSON.stringify({query: text, lang: "en", sessionId: "somerandomthing"})
     }

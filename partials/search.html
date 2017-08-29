@@ -1,12 +1,12 @@
 <h1>{{ title }}</h1>
 <div class="row center-lg center-xs">
   <div class="col-lg-6">
-    <a href="/connexion/logout" class="btn-signout"> Sign out <span><img src="/img/sign-out.png" alt=""></span></a>
+    <a href="/#!/logout/" class="btn-signout"> Sign out <span><img src="/img/sign-out.png" alt=""></span></a>
   </div>
   <div class="col-lg-6 user-info">
-    <span class="user-name">Barack OBAMA</span>
+    <span class="user-name">{{user.firstname}} {{user.lastname}}</span>
     <div class="user-img">
-    <img src="/img/user-img.jpg" alt="">
+    <img src="/img/{{user.avatar != null ? user.avatar : 'user-no-avatar.png'}}" alt="">
     </div>
   </div>
 </div>
