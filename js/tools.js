@@ -13,7 +13,9 @@ $(function () {
 
 $(function () {
     $(".btn-signup").click(function () {
-        
+        $(".nav").toggleClass("nav-up");
+        $(".form-signup-left").toggleClass("form-signup-down");
+        $(".frame").toggleClass("frame-short");
     });
 });
 

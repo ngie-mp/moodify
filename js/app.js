@@ -6,34 +6,34 @@ app.config(function($routeProvider, $locationProvider) {
       controller : 'loginCtrl'
     }).
     when('/search/', {
-      resolve: {
+      /*resolve: {
         check: function($location, user) {
           if(!user.isUserLoggedIn()) {
             $location.path('/');
           }
         },
-      },
+      },*/
       templateUrl: 'partials/search.html',
       controller : 'speechtCtrl'
     }).
     when('/home/', {
-      resolve: {
+      /*resolve: {
         check: function($location, user) {
           if(!user.isUserLoggedIn()) {
             $location.path('/');
           }
         },
-      },
+      },*/
       templateUrl: 'partials/home.html',
       controller : 'resultsCtrl'
     }).
     when('/logout/', {
-      resolve: {
+      /*resolve: {
         deadResolve: function($location, user) {
           user.clearData();
           $location.path('/');
-        }  
-      }
+        }
+      }*/
     })
     .otherwise({
       template: '404'
@@ -77,10 +77,10 @@ app.service('user', function() {
 	}
 })
 
-// Gestion login : / 
+// Gestion login : /
 app.controller('loginCtrl', function($scope, $http, $location, socialLoginService, user) {
   $scope.title = 'login';
-  
+
   // Bouton GoogleAuth
   $scope.signout = function(){
     socialLoginService.logout();
@@ -97,13 +97,13 @@ app.controller('loginCtrl', function($scope, $http, $location, socialLoginServic
 	$scope.$on('event:social-sign-out-success', function(event, userDetails){
 		$scope.userGoogle = userDetails;
   })
-  
+
   // Bouton Login normal
   $scope.login = function() {
 		var email = $scope.email;
 		var password = $scope.password;
 		$http({
-			url: 'http://api.moodify.hackaton/api/connect',
+			url: 'http://api.moodify.dev/api/connect',
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded'
@@ -119,7 +119,7 @@ app.controller('loginCtrl', function($scope, $http, $location, socialLoginServic
 			}
 		})
   }
-  
+
   // Bouton Register normal
   $scope.register = function() {
 		var firstname = $scope.firstname;
@@ -128,7 +128,7 @@ app.controller('loginCtrl', function($scope, $http, $location, socialLoginServic
     var password = $scope.password;
     var password_confirm = $scope.password_confirm;
 		$http({
-			url: 'http://api.moodify.hackaton/api/register',
+			url: 'http://api.moodify.dev/api/register',
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded'
@@ -150,10 +150,10 @@ app.controller('loginCtrl', function($scope, $http, $location, socialLoginServic
 
 });
 
-// Page results : /home/ 
+// Page results : /home/
 app.controller('resultsCtrl', function parentCtrl($scope, $http) {
   $scope.title = 'result';
-  $http.get('http://api.moodify.hackaton/api/home/lyon').then(function(response) {
+  $http.get('http://api.moodify.dev/api/home/lyon').then(function(response) {
     if(response.data.return_code == 0) {
       $scope.services = response.data.returns;
       console.log(response.data);
