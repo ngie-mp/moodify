@@ -70,7 +70,9 @@ input[type="radio"][name="tabs"] {
     top: 100px;
     left: 16px;
     line-height: 130%;
-    display: none; }
+    display: none;
+    padding: 2em 0;
+    margin-bottom: 10%; }
 
 .sticky-input {
   background: #00738a;
@@ -78,8 +80,6 @@ input[type="radio"][name="tabs"] {
   position: fixed;
   bottom: 0;
   padding-top: 1em; }
-  .sticky-input input {
-    margin: 0 auto; }
 
 .toolbar {
   background: #00738a;

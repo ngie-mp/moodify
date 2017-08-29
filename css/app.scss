@@ -99,7 +99,12 @@ input[type="radio"][name="tabs"] {
     left: 16px;
     line-height: 130%;
     display: none;
-
+    padding: 2em 0;
+    margin-bottom: 10%;
+    .food-content {
+      img {
+      }
+    }
   }
 }
 
@@ -109,9 +114,6 @@ input[type="radio"][name="tabs"] {
   position: fixed;
   bottom:0;
   padding-top: 1em;
-  input {
-    margin: 0 auto;
-  }
 }
 
 .toolbar {
@@ -596,7 +598,7 @@ textarea { width: 100%; }
     }
   }
   .sticky-input {
-    
+
   }
 }
 @media screen and (max-width: 480px) {
