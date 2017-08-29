@@ -1,75 +1,72 @@
-<h1>{{ title }}</h1>
 <div class="container">
   <div class="row center-xs logo">
     <div class="col-xs-6">
       <div>
         <img src="/img/sun.png" alt="">
         <div class="">
-          <h1>Moodify app</h1>
+          <h1>- Moodify app -</h1>
         </div>
       </div>
     </div>
   </div>
-
-  <div class="frame">
-    <div class="nav-login">
-      <ul class="links">
-        <li class="signin-active"><a class="btn">Se connecter</a></li>
-        <li class="signup-inactive"><a class="btn">S'inscrire</a></li>
-      </ul>
-    </div>
-
-    <div class="form-wrap">
-      <form class="form-signin" id="form_connexion">
-        <label for="username">Email</label>
-        <div class="input email">
-          <input type="email" class="form-styling" ng-model="email">
-        </div>
-
-        <label for="password">Mot de passe</label>
-        <div class="input password">
-          <input type="password" class="form-styling" ng-model="password">
-        </div>
-
-        <div class="btn-animate">
-          <a class="btn-signin" ng-click="login()">Se connecter</a>
-        </div>
-
-        <div class="btn-animate-google">
-          <a g-login class="btn-signin-google">Se connecter via Google</a>
-        </div>
-
-        <button ng-click="signout()" type="button">Se déco de google</button>
-        <h4>result: {{userGoogle}}</h4>
-      </form>
-
-      <form class="form-signup">
-        <label for="fullname">Firstname</label>
-        <input class="form-styling" type="text" ng-model="firstname" required>
-
-        <div ng-show="form.password.$error.required">Field required</div>
-
-        <label for="email">Lastname</label>
-        <input class="form-styling" type="text" ng-model="lastname" required>
-
-        <label for="email">Email</label>
-        <input class="form-styling" type="text" ng-model="email" required>
-
-        <label for="password">Password</label>
-        <input class="form-styling" type="password" ng-model="password" required equalsPassword="{{password_confirm}}">
-
-        <label for="confirmpassword">Confirm password</label>
-        <input class="form-styling" type="password" ng-model="password_confirm" required equalsPassword="{{password}}">
-
-        <div ng-show="form.password_confirm.$error.required">
-            Field required!</div>
-        <div ng-show="form.password_confirm.$error.passwordVerify">
-          Fields are not equal!</div>
-
-        <a ng-click="register()" class="btn-signup">S'inscrire</a>
-
-      </form>
+  <div class="row">
+    <div class="frame col-lg-12 col-md-12  col-sm-12 col-xs-12">
+      <div class="nav-login">
+        <ul class="links">
+          <li class="signin-active"><a class="btn">Se connecter</a></li>
+          <li class="signup-inactive"><a class="btn">S'inscrire</a></li>
+        </ul>
+      </div>
+      <div class="form-wrap">
+        <form class="form-signin" id="form_connexion">
+          <label for="username">Email</label>
+          <div class="input email">
+            <input type="email" class="form-styling" ng-model="email">
+          </div>
+          <label for="password">Mot de passe</label>
+          <div class="input password">
+            <input type="password" class="form-styling" ng-model="password">
+          </div>
+          <div class="btn-animate">
+            <a class="btn-signin" ng-click="login()">Sign in</a>
+          </div>
+          <div class="btn-animate">
+            <a g-login class="btn-sign-google">
+              Sign up using GOOGLE +
+            </a>
+          </div>
+          <!-- le mettre qlq part d'autre ?
+          <button ng-click="signout()" type="button">Se déco de google</button>
+          <h4>result: {{userGoogle}}</h4>
+          -->
+        </form>
+        <form class="form-signup">
+          <label for="fullname">Firstname</label>
+          <input class="form-styling" type="text" ng-model="firstname" required>
+          <div ng-show="form.password.$error.required">Field required</div>
+          <label for="email">Lastname</label>
+          <input class="form-styling" type="text" ng-model="lastname" required>
+          <label for="email">Email</label>
+          <input class="form-styling" type="text" ng-model="email" required>
+          <label for="password">Password</label>
+          <input class="form-styling"
+                  type="password"
+                  ng-model="password"
+                  required equalsPassword="{{password_confirm}}">
+          <label for="confirmpassword">Confirm password</label>
+          <input class="form-styling"
+                type="password"
+                ng-model="password_confirm"
+                required equalsPassword="{{password}}">
+          <div ng-show="form.password_confirm.$error.required">
+              Field required!</div>
+          <div ng-show="form.password_confirm.$error.passwordVerify">
+            Fields are not equal!</div>
+          <div class="btn-animate">
+            <a ng-click="register()" class="btn-signup">S'inscrire</a>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-
 </div>
