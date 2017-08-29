@@ -515,7 +515,9 @@ textarea { width: 100%; }
   font-weight: 100;
 }
 
-.effectwrap input[type="text"]{color: #333; width: 100%; box-sizing: border-box; letter-spacing: 1px;}
+.effectwrap input[type="text"] {
+  color: #333; width: 100%; box-sizing: border-box; letter-spacing: 1px;
+}
 .effectwrap{ width: 50%; margin: 0  auto; position: relative;}
 .effect-9{border: 1px solid #ccc; padding: 7px 14px 9px; transition: 0.4s;}
 .effect-9 ~ .focus-border:before,
@@ -592,6 +594,9 @@ textarea { width: 100%; }
     .user-name {
       margin-left: 0.25em;
     }
+  }
+  .sticky-input {
+    
   }
 }
 @media screen and (max-width: 480px) {
