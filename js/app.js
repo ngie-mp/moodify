@@ -1,4 +1,6 @@
-var app = angular.module('MoodApp', ['ngRoute', 'socialLogin']);
+const API_URL = "http://api.moodify.dev";
+
+var app = angular.module('MoodApp', ['ngRoute']);
 app.config(function($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {
@@ -32,7 +34,7 @@ app.config(function($routeProvider, $locationProvider) {
         deadResolve: function($location, user) {
           user.clearData();
           $location.path('/');
-        }  
+        }
       }
     })
     .otherwise({
@@ -40,14 +42,9 @@ app.config(function($routeProvider, $locationProvider) {
     });
 });
 
-app.config(function(socialProvider){
-  socialProvider.setGoogleKey("724346200475-sj3iure20vb2mse5m6ogjtsg9kb5qma2.apps.googleusercontent.com");
-  /*socialProvider.setLinkedInKey("YOUR LINKEDIN CLIENT ID");
-  socialProvider.setFbKey({appId: "YOUR FACEBOOK APP ID", apiVersion: "API VERSION"});*/
-});
-
 app.service('user', function() {
 	var loggedin = false;
+  var is_google = false;
 
 	this.setUser = function(user) {
 		userInfos = user;
@@ -60,10 +57,20 @@ app.service('user', function() {
 		if(!!localStorage.getItem('user')) {
 			loggedin = true;
 			var data = JSON.parse(localStorage.getItem('user'));
-			userInfos = data;
-			id = data.id;
 		}
 		return loggedin;
+	};
+
+  this.isUserGoogleLoggedIn = function() {
+    console.log(is_google);
+		if(!!localStorage.getItem('user')) {
+			is_google = false;
+			var data = JSON.parse(localStorage.getItem('user'));
+			if(data.social_id == 0){
+        is_google = true;
+      }
+		}
+		return is_google;
 	};
 
 	this.saveData = function(data) {
@@ -72,45 +79,52 @@ app.service('user', function() {
 	};
 
 	this.clearData = function() {
-		localStorage.removeItem('user');
-		loggedin = false;
+    loggedin = false;
+    console.log('test');
+    localStorage.removeItem('user');
 	}
 })
 
-// Gestion login : / 
-app.controller('loginCtrl', function($scope, $http, $location, socialLoginService, user) {
+// Gestion login : /
+app.controller('loginCtrl', function($scope, $http, $location, user) {
   $scope.title = 'login';
-  
-  // Bouton GoogleAuth
-  $scope.signout = function(){
-    socialLoginService.logout();
-    console.log($scope.userGoogle);
-	}
-	$scope.$on('event:social-sign-in-success', (event, userDetails)=> {
-    $scope.userGoogle = userDetails;
-    user.setUser(userDetails);
-		$scope.$apply();
-    if(userDetails.token != null){
-      window.location = '/#!/search/';
-    }
-	})
-	$scope.$on('event:social-sign-out-success', function(event, userDetails){
-		$scope.userGoogle = userDetails;
-  })
-  
+
+  $scope.googleLogin = function(){
+    $(".abcRioButtonContentWrapper").click();
+  }
+
+  function onSignIn(googleUser) {
+    var id_token = googleUser.getAuthResponse().id_token;
+    $http({
+      url: API_URL+'/api/registerGoogle/',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      data: 'id_token='+id_token
+    }).then(function(response) {
+      if(response.data.return_code == 0) {
+        user.saveData(response.data.returns.user);
+        $location.path('/search');
+      } else {
+        alert('invalid login | error : ' + response.data.error);
+      }
+    })
+   }
+  window.onSignIn = onSignIn;
+
   // Bouton Login normal
   $scope.login = function() {
 		var email = $scope.email;
 		var password = $scope.password;
 		$http({
-			url: 'http://api.moodify.hackaton/api/connect',
+			url: API_URL+'/api/connect',
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded'
 			},
 			data: 'email='+email+'&password='+password
 		}).then(function(response) {
-      console.log(response.data);
 			if(response.data.return_code == 0) {
 				user.saveData(response.data.returns.user);
 				$location.path('/search');
@@ -119,7 +133,7 @@ app.controller('loginCtrl', function($scope, $http, $location, socialLoginServic
 			}
 		})
   }
-  
+
   // Bouton Register normal
   $scope.register = function() {
 		var firstname = $scope.firstname;
@@ -128,14 +142,13 @@ app.controller('loginCtrl', function($scope, $http, $location, socialLoginServic
     var password = $scope.password;
     var password_confirm = $scope.password_confirm;
 		$http({
-			url: 'http://api.moodify.hackaton/api/register',
+			url: API_URL + '/api/register',
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded'
 			},
 			data: 'firstname='+firstname+'&lastname='+lastname+'&email='+email+'&password='+password+'&password_confirm='+password_confirm
 		}).then(function(response) {
-      console.log(response.data);
 			if(response.data.return_code == 0) {
         $(".nav").toggleClass("nav-up");
         $(".form-signup-left").toggleClass("form-signup-down");
@@ -150,10 +163,10 @@ app.controller('loginCtrl', function($scope, $http, $location, socialLoginServic
 
 });
 
-// Page results : /home/ 
+// Page results : /home/
 app.controller('resultsCtrl', function parentCtrl($scope, $http) {
   $scope.title = 'result';
-  $http.get('http://api.moodify.hackaton/api/home/lyon').then(function(response) {
+  $http.get(API_URL + '/api/home/lyon').then(function(response) {
     if(response.data.return_code == 0) {
       $scope.services = response.data.returns;
       console.log(response.data);

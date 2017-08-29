@@ -36,11 +36,8 @@
         </div>
 
         <div class="btn-animate-google">
-          <a g-login class="btn-signin-google">Se connecter via Google</a>
+          <a ng-click="googleLogin()" class="btn-signin-google">Se connecter via Google</a>
         </div>
-
-        <button ng-click="signout()" type="button">Se déco de google</button>
-        <h4>result: {{userGoogle}}</h4>
       </form>
 
       <form class="form-signup">
