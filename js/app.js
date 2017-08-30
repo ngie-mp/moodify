@@ -173,6 +173,7 @@ app.controller('loginCtrl', function($scope, $http, $location, user) {
 // Page results : /home/
 app.controller('resultsCtrl', function parentCtrl($scope, $http) {
   $scope.title = 'result';
+
   $http.get(API_URL + '/api/home/lyon').then(function(response) {
     if(response.data.return_code == 0) {
       $scope.services = response.data.returns;
