@@ -8,6 +8,10 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+h1 {
+  margin: 0;
+}
+
 /* SCSS  */
 $cyan: rgb(0, 115, 138);
 $grey: #9e9e9e;
@@ -28,11 +32,29 @@ $num-of-tabs: 4;
 
 .tab-wrap {
   width: 100%;
-  //margin-left: 20%;
   margin-top: 1em;
   position: relative;
   display: flex;
-  //top: -106px;
+  padding-top: 40px;
+  background-color: #00738a;
+  label {
+    cursor: pointer;
+    color: rgba(255,255,255,0.8);
+    background-color: $cyan;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 56px;
+    transition: color 0.2s ease;
+    width: 100%;
+    img {
+      position: absolute;
+      top: 16px;
+    }
+  }
+
 }
 
 input[type="radio"][name="tabs"] {
@@ -59,22 +81,6 @@ input[type="radio"][name="tabs"] {
   }
 }
 
-.tab-wrap {
-  label {
-    cursor: pointer;
-    color: rgba(255,255,255,0.8);
-    background-color: $cyan;
-    box-sizing: border-box;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 56px;
-    transition: color 0.2s ease;
-    width: 100%;
-  }
-}
-
 .slide {
   background: #e4e4e4;
   width: calc(100% / #{$num-of-tabs});
@@ -93,6 +99,12 @@ input[type="radio"][name="tabs"] {
     left: 16px;
     line-height: 130%;
     display: none;
+    padding: 2em 0;
+    margin-bottom: 10%;
+    .food-content {
+      img {
+      }
+    }
   }
 }
 
@@ -102,24 +114,39 @@ input[type="radio"][name="tabs"] {
   position: fixed;
   bottom:0;
   padding-top: 1em;
-  input {
-    margin: 0 auto;
-  }
 }
 
-.user-name {
-  color: #f6f6f6;
-  font-style: italic;
+.toolbar {
+  background: #00738a;
+  padding: 0.5em 1.5em;
+  margin-bottom: 5em;
 }
-.user-img {
-  border-radius: 50%;
-  display: block;
-  overflow: hidden;
-  height: 50px;
-  width: 50px;
-  img {
-    max-height: 100%;
+
+.user-info {
+  .user-name {
+    color: #f6f6f6;
+    font-style: italic;
+    float: right;
+    margin-top: 1em;
+    margin-left: 1em;
   }
+  .user-img {
+    border-radius: 50%;
+    display: block;
+    overflow: hidden;
+    height: 50px;
+    width: 50px;
+    float: right;
+    img {
+      max-height: 100%;
+      margin-right: 0.5em;
+    }
+  }
+}
+.wlcome-user {
+  color: #f6f6f6;
+  font-weight: 300;
+  font-style: italic;
 }
 
 .btn-signout {
@@ -128,13 +155,18 @@ input[type="radio"][name="tabs"] {
   text-decoration: none;
   display: block;
   font-size: 0.8em;
+  margin-top: 1em;
 }
 
 @media screen and (max-width: 800px) {
   .tab-wrap {
     width: 100%;
-    //margin-left: 10%;
-    //top: -106px;
+    label {
+      font-size: 0.6em;
+      img {
+        width: 6%;
+      }
+    }
   }
 }
 
@@ -168,6 +200,7 @@ input[type="radio"][name="tabs"] {
   font-size: 2.5em;
   color: #ffffff;
   padding-top: 10px;
+  text-transform: uppercase;
 }
 
 .frame-long {
@@ -239,8 +272,8 @@ li {
   height: 375px;
   font-size: 16px;
   font-weight: 300;
-  padding-left: 37px;
-  padding-right: 37px;
+  padding-left: 10px;
+  padding-right: 10px;
   padding-top: 55px;
   transition: opacity .5s ease, transform .5s ease;
   margin: 0 auto;
@@ -260,8 +293,8 @@ li {
   width: 430px;
   font-size: 16px;
   font-weight: 300;
-  padding-left: 37px;
-  padding-right: 37px;
+  padding-left: 10px;
+  padding-right: 10px;
   padding-top: 35px;
   position: relative;
   top: -375px;
@@ -320,7 +353,8 @@ label {
   display: block;
 }
 
-:focus {outline: none;
+:focus {
+  outline: none;
 }
 
 .form-signin input:focus, textarea:focus, .form-signup input:focus, textarea:focus {
@@ -329,28 +363,6 @@ label {
     padding-right: 40px;
     transition: background .5s ease;
  }
-
-.btn-signup {
-  float: left;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 13px;
-  text-align: center;
-  color: #ffffff;
-  padding-top: 8px;
-  width: 100%;
-  height: 35px;
-  margin-top: 23px;
-  background-color: #737373;
-}
-
-.btn-signin {
-  float: left;
-  padding-top: 8px;
-  width: 100%;
-  height: 35px;
-  margin-top: -8px;
-}
 
 .btn-animate {
   float: left;
@@ -361,55 +373,41 @@ label {
   color: rgba(255,255,255, 1);
   padding-top: 8px;
   width: 100%;
-  height: 35px;
+  height: 45px;
   margin-top: 23px;
-  background-color: #737373;
+  background-color: #20626d;
   left: 0px;
   top: 0px;
-  transition: all .5s ease, top .5s ease .5s, height .5s ease .5s, background-color .5s ease .75s;
+  transition: all .5s ease;
+  .btn-signin {
+    float: left;
+    padding-top: 8px;
+    width: 100%;
+    height: 45px;
+    //margin-top: -8px;
+  }
+  .btn-sign-google {
+    background: url(../img/google.png);
+    background-position-x: 15%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 45px;
+    display: block;
+    padding-top: 8px;
+  }
+  .btn-signup {
+    float: left;
+    padding-top: 8px;
+    width: 100%;
+    height: 45px;
+    &:hover {
+      cursor: pointer;
+      background-color: #00869d;
+      transition: background-color .5s;
+    }
+  }
 }
 
-.btn-animate-grow {
-  width: 130%;
-  height: 625px;
-  position: relative;
-  left: -55px;
-  top: -420px;
-  color: rgba(255,255,255,0);
-  background-color: rgba(255,255,255,1);
-}
-
-.btn-animate-google {
-  float: left;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 13px;
-  text-align: center;
-  color: rgba(255,255,255, 1) !important;
-  padding-top: 8px;
-  width: 100%;
-  height: 35px;
-  margin-top: 23px;
-  background-color: red;
-  left: 0px;
-  top: 0px;
-}
-
-.btn-animate-google a{
-  color: rgba(255,255,255, 1) !important;
-	text-decoration: none !important;
-}
-
-a.btn-signup:hover, a.btn-signin:hover {
-    cursor: pointer;
-    background-color: #0F4FE6;
-    transition: background-color .5s;
-}
-
-.btn-animate-google:hover {
-    cursor: pointer;
-    background-color: #d40000;
-}
 
 input { width: 350px; }
 button { width: 50px; }
@@ -441,8 +439,7 @@ textarea { width: 100%; }
   border-radius: 12%;
 }
 
-/* ADD BY DIMITRI */
-#back{
+#back {
   top: 0;
   left: 0;
 }
@@ -450,25 +447,26 @@ textarea { width: 100%; }
 #body_corp {
   width: 50%;
   margin: 0 auto;
-}
-
-#body_corp input {
-  width: 100%;
-  height: 70px;
-  padding: 1%;
-  margin: 30px;
-}
-
-#body_corp .hide {
-  display: none;
-}
-
-#body_corp button {
-  width: 50px;
-}
-
-#body_corp textarea {
-  width: 100%;
+  input {
+    width: 100%;
+    height: 70px;
+    padding: 1%;
+    margin: 30px;
+    &::placeholder {
+      font-size: 1.2em;
+      color: #363636;
+      font-weight: 400;
+    }
+  }
+  .hide {
+   display: none;
+  }
+  button {
+   width: 50px;
+  }
+  textarea {
+    width: 100%;
+  }
 }
 
 /*  First result page */
@@ -519,7 +517,9 @@ textarea { width: 100%; }
   font-weight: 100;
 }
 
-.effectwrap input[type="text"]{color: #333; width: 100%; box-sizing: border-box; letter-spacing: 1px;}
+.effectwrap input[type="text"] {
+  color: #333; width: 100%; box-sizing: border-box; letter-spacing: 1px;
+}
 .effectwrap{ width: 50%; margin: 0  auto; position: relative;}
 .effect-9{border: 1px solid #ccc; padding: 7px 14px 9px; transition: 0.4s;}
 .effect-9 ~ .focus-border:before,
@@ -560,6 +560,45 @@ textarea { width: 100%; }
   .time {
     font-size: 0.9em;
     font-weight: 300;
+  }
+
+  .logo {
+    h1 {
+      font-size: 1.2em;
+      font-weight: 600;
+    }
+  }
+
+  #body_corp {
+    input {
+      margin: 0;
+      height: 50px;
+      margin-bottom: 0.5em;
+      &::placeholder {
+        font-size: 0.8em;
+        color: #363636;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .toolbar {
+    margin-bottom: 0.5em;
+  }
+
+  .buttonRec {
+    margin-top: 1.5em;
+  }
+
+  .user-info {
+    padding-right: 0;
+    padding-left: 0;
+    .user-name {
+      margin-left: 0.25em;
+    }
+  }
+  .sticky-input {
+
   }
 }
 @media screen and (max-width: 480px) {

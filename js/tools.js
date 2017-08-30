@@ -11,12 +11,6 @@ $(function () {
     });
 });
 
-$(function () {
-    $(".btn-signup").click(function () {
-
-    });
-});
-
 /* Login button */
 
 $(document).on('click', ".buttonRec", function () {

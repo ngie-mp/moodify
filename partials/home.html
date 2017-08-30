@@ -1,4 +1,14 @@
-<h1>{{ title }}</h1>
+<div class="row toolbar">
+  <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
+    <a href="/#!/logout/" class="btn-signout"><span><img src="/img/sign-out.png" alt="Sign out"></span></a>
+  </div>
+  <div class="user-info col-md-6 col-lg-6 col-sm-6 col-xs-6">
+    <span class="user-name">{{user.firstname}}{{user.lastname}} Martin HACHE</span>
+    <div class="user-img">
+    <img src="/img/{{user.avatar != null ? user.avatar : 'user-no-avatar.png'}}" alt="">
+    </div>
+  </div>
+</div>
 <header>
     <div class="weather row center-lg center-xs">
         <div class="col-lg-6 col-xs-6">
@@ -8,7 +18,8 @@
         </div>
         <div class="col-lg-6 col-xs-6">
             <div class="review">
-                <img src="/img/weather/raindrop.png" alt="">                <span>{{ services.weather.humidity }}</span>
+                <img src="/img/weather/raindrop.png" alt="">
+                <span>{{ services.weather.humidity }}</span>
                 <img src="/img/weather/wind.png" alt="">
                 <span id="wind_ville">16 km/h NE</span>
             </div>
@@ -36,33 +47,53 @@
         <input type="radio" name="tabs" id="food" checked="">
         <div class="tab-label-content" id="tab1-content">
             <label for="food">
-                <img src="/img/food/chicken.png" alt=""><br>
+                <img src="/img/food/chicken.png" alt="">
                 <span>Food</span>
             </label>
-            <div class="tab-content">
-                AQUI LA COMIDA!!
+            <div class="tab-content food-content">
+              <div class="row between-lg">
+                <div class="col-lg-4">
+                  <img src="img/food/food-1.jpg" alt="" class="col-lg-12">
+                    <a href="#">voir recette</a>
+                </div>
+                <div class="col-lg-4">
+                  <img src="img/food/food-2.jpg" alt=""  class="col-lg-12">
+                    <a href="#">voir recette</a>
+                </div>
+                <div class="col-lg-4">
+                  <img src="img/food/food-3.jpg" alt=""  class="col-lg-12">
+                    <a href="#">voir recette</a>
+                </div>
+              </div>
             </div>
         </div>
         <input type="radio" name="tabs" id="drinks">
         <div class="tab-label-content" id="tab2-content">
             <label for="drinks">
-                <img src="/img/drinks/glass.png" alt="">                <span>Food</span>
+                <img src="/img/drinks/glass.png" alt="">
+                <span>Drinks</span>
             </label>
             <div class="tab-content">
-                <div id="real">
+              <div class="row center-lg">
+                <div id="real" class="col-lg-4">
                     <h2>Alcoholic drink <div id="drinksA">Salty Dog</div> </h2>
                     <iframe width="450" height="300" id="videoA" src="https://www.youtube.com/embed/SwBtnLe7lRc" frameborder="0" allowfullscreen=""></iframe>
                 </div>
-                <div id="big">
+                <div id="big" class="col-lg-4">
                     <h2>Soft drink <div id="drinksNA">Ping-pong</div> </h2>
                     <iframe width="450" height="300" id="videoNA" frameborder="0" allowfullscreen="" src="https://www.youtube.com/embed/zuPwKhVlQgs"></iframe>
                 </div>
+                <div class="col-lg-4">
+                    <h2>Soft drink <div id="drinksNA">Ping-pong</div> </h2>
+                    <iframe width="450" height="300" id="videoNA" frameborder="0" allowfullscreen="" src="https://www.youtube.com/embed/zuPwKhVlQgs"></iframe>
+                </div>
+              </div>
             </div>
         </div>
         <input type="radio" name="tabs" id="activities">
         <div class="tab-label-content" id="tab3-content">
             <label for="activities">
-                <img src="/img/activities/activities.png" alt=""> <br>
+                <img src="/img/activities/activities.png" alt="">
                 <span>Activities</span>
             </label>
             <div class="tab-content">Here on propose une activité selon la météo, if --&gt; fait beau alors on les envoie dors, else --&gt; on propose de lire un livre regarder des films, bref</div>
@@ -70,7 +101,7 @@
         <input type="radio" name="tabs" id="movies">
         <div class="tab-label-content" id="tab4-content">
             <label for="movies">
-                <img src="/img/movies/old-television.png" alt=""> <br>
+                <img src="/img/movies/old-television.png" alt="">
                 <span>Movies &amp; series</span>
             </label>
             <div class="tab-content">
@@ -81,16 +112,18 @@
         </div>
         <div class="slide"></div>
     </div>
-    <div class="sticky-input">
-        <div class="effectwrap">
-            <input class="effect-9" type="text" placeholder="Placeholder Text">
-            <span class="focus-border">
-        <i></i>
-        </span>
-        </div>
-        <div class="buttonRec">
-            <div class="innerRec">
-            </div>
-        </div>
+    <div class="sticky-input row">
+      <div class="col-lg-12 col-sm-12 col-xs-12">
+          <div class="effectwrap">
+              <input class="effect-9" type="text" placeholder="Placeholder Text">
+              <span class="focus-border">
+              <i></i>
+          </span>
+          </div>
+      </div>
+      <div class="buttonRec">
+          <div class="innerRec">
+          </div>
+      </div>
     </div>
 </div>

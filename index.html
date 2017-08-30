@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="google-signin-client_id" content="724346200475-sj3iure20vb2mse5m6ogjtsg9kb5qma2.apps.googleusercontent.com">
     <meta name="google-signin-scope" content="profile email">
-
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>Moodify App</title>
     <link rel="stylesheet" href="node_modules/flexboxgrid/dist/flexboxgrid.css">
     <link rel="stylesheet" href="css/app.css">
@@ -16,6 +16,7 @@
 
   </head>
   <body>
+
     <div class="g-signin2" id="googleAuth" data-onsuccess="onSignIn" data-theme="dark" style="display: none;"></div>
     <h1>{{ title }}</h1>
      <div ng-view></div>
