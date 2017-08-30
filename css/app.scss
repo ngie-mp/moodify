@@ -81,6 +81,74 @@ input[type="radio"][name="tabs"] {
   }
 }
 
+.overlay-result {
+	position:fixed;
+	top:0;
+	height:100%;
+	width:100%;
+	background:#333;
+	overflow:auto;
+	z-index:99;
+  opacity: 0.8;
+}
+
+.loader:before{
+	content: "";
+	position: absolute;
+	top: 0px;
+	height: 12px;
+	width: 12px;
+	border-radius: 12px;
+	-webkit-animation: loaderg 3s ease-in-out infinite;
+			animation: loaderg 3s ease-in-out infinite;
+}
+
+.loader{
+	position: relative;
+	width: 12px;
+	height: 12px;
+	top: 46%;
+	left: 46%;
+	border-radius: 12px;
+	background-color: #fff;
+}
+
+
+.loader:after{
+	content: "";
+	position: absolute;
+	top: 0px;
+	height: 12px;
+	width: 12px;
+	border-radius: 12px;
+	-webkit-animation: loaderd 3s ease-in-out infinite;
+			animation: loaderd 3s ease-in-out infinite;
+}
+
+@-webkit-keyframes loaderg{
+	0%{	left: -25px; background-color: rgba(255, 255, 255, .8); }
+	50%{ left: 0px; background-color: rgba(255, 255, 255, .1);}
+	100%{ left:-25px; background-color: rgba(255, 255, 255, .8); }
+}
+@keyframes loaderg{
+	0%{	left: -25px; background-color: rgba(255, 255, 255, .8); }
+	50%{ left: 0px; background-color: rgba(255, 255, 255, .1);}
+	100%{ left:-25px; background-color: rgba(255, 255, 255, .8); }
+}
+
+
+@-webkit-keyframes loaderd{
+	0%{	left: 25px; background-color: rgba(255, 255, 255, .8); }
+	50%{ left: 0px; background-color: rgba(255, 255, 255, .1);}
+	100%{ left:25px; background-color: rgba(255, 255, 255, .8); }
+}
+@keyframes loaderd{
+	0%{	left: 25px; background-color: rgba(255, 255, 255, .8); }
+	50%{ left: 0px; background-color: rgba(255, 255, 255, .1);}
+	100%{ left:25px; background-color: rgba(255, 255, 255, .8); }
+}
+
+
 .slide {
   background: #e4e4e4;
   width: calc(100% / #{$num-of-tabs});
@@ -94,16 +162,41 @@ input[type="radio"][name="tabs"] {
 .tab-label-content {
   width: 100%;
   .tab-content {
+    width: 100%;
     position: absolute;
     top: 100px;
-    left: 16px;
+    left: 0;
     line-height: 130%;
     display: none;
-    padding: 2em 0;
-    margin-bottom: 10%;
-    .food-content {
+    margin-bottom: 10em;
+  }
+  .food-content {
+    .api-img {
+      display: block;
+      overflow: hidden;
+      width: 300px;
+      height: 200px;
+      margin: 0 auto;
       img {
+        max-height: 100%;
+        margin-right: 0.5em;
       }
+    }
+    .info-food {
+      a {
+        text-align: center;
+      }
+    }
+  }
+  .drink-content {
+    iframe {
+      padding: 2em;
+    }
+    .title {
+      text-transform: uppercase;
+      color: #f6f6f6;
+      margin-top: 1.5em;
+      display: block;
     }
   }
 }
@@ -547,6 +640,10 @@ textarea { width: 100%; }
 }
 @media only screen and (max-width: 40em) {
   /* en dessous de 600px - PHABLETT */
+
+  .form-signin {
+    width: 100% !important;
+  }
   .w-icons img {
     width: 90%;
   }
@@ -599,6 +696,11 @@ textarea { width: 100%; }
   }
   .sticky-input {
 
+  }
+  .links {
+    li {
+      padding-right: 0;
+    }
   }
 }
 @media screen and (max-width: 480px) {

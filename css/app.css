@@ -54,6 +54,85 @@ input[type="radio"][name="tabs"] {
   input[type="radio"][name="tabs"]:first-of-type:checked ~ .slide {
     left: 0; }
 
+.overlay-result {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: #333;
+  overflow: auto;
+  z-index: 99;
+  opacity: 0.8; }
+
+.loader:before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  height: 12px;
+  width: 12px;
+  border-radius: 12px;
+  -webkit-animation: loaderg 3s ease-in-out infinite;
+  animation: loaderg 3s ease-in-out infinite; }
+
+.loader {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  top: 46%;
+  left: 46%;
+  border-radius: 12px;
+  background-color: #fff; }
+
+.loader:after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  height: 12px;
+  width: 12px;
+  border-radius: 12px;
+  -webkit-animation: loaderd 3s ease-in-out infinite;
+  animation: loaderd 3s ease-in-out infinite; }
+
+@-webkit-keyframes loaderg {
+  0% {
+    left: -25px;
+    background-color: rgba(255, 255, 255, 0.8); }
+  50% {
+    left: 0px;
+    background-color: rgba(255, 255, 255, 0.1); }
+  100% {
+    left: -25px;
+    background-color: rgba(255, 255, 255, 0.8); } }
+@keyframes loaderg {
+  0% {
+    left: -25px;
+    background-color: rgba(255, 255, 255, 0.8); }
+  50% {
+    left: 0px;
+    background-color: rgba(255, 255, 255, 0.1); }
+  100% {
+    left: -25px;
+    background-color: rgba(255, 255, 255, 0.8); } }
+@-webkit-keyframes loaderd {
+  0% {
+    left: 25px;
+    background-color: rgba(255, 255, 255, 0.8); }
+  50% {
+    left: 0px;
+    background-color: rgba(255, 255, 255, 0.1); }
+  100% {
+    left: 25px;
+    background-color: rgba(255, 255, 255, 0.8); } }
+@keyframes loaderd {
+  0% {
+    left: 25px;
+    background-color: rgba(255, 255, 255, 0.8); }
+  50% {
+    left: 0px;
+    background-color: rgba(255, 255, 255, 0.1); }
+  100% {
+    left: 25px;
+    background-color: rgba(255, 255, 255, 0.8); } }
 .slide {
   background: #e4e4e4;
   width: calc(100% / 4);
@@ -66,13 +145,31 @@ input[type="radio"][name="tabs"] {
 .tab-label-content {
   width: 100%; }
   .tab-label-content .tab-content {
+    width: 100%;
     position: absolute;
     top: 100px;
-    left: 16px;
+    left: 0;
     line-height: 130%;
     display: none;
-    padding: 2em 0;
-    margin-bottom: 10%; }
+    margin-bottom: 10em; }
+  .tab-label-content .food-content .api-img {
+    display: block;
+    overflow: hidden;
+    width: 300px;
+    height: 200px;
+    margin: 0 auto; }
+    .tab-label-content .food-content .api-img img {
+      max-height: 100%;
+      margin-right: 0.5em; }
+  .tab-label-content .food-content .info-food a {
+    text-align: center; }
+  .tab-label-content .drink-content iframe {
+    padding: 2em; }
+  .tab-label-content .drink-content .title {
+    text-transform: uppercase;
+    color: #f6f6f6;
+    margin-top: 1.5em;
+    display: block; }
 
 .sticky-input {
   background: #00738a;
@@ -491,6 +588,9 @@ textarea {
   /* en dessous de 970px - TABET */ }
 @media only screen and (max-width: 40em) {
   /* en dessous de 600px - PHABLETT */
+  .form-signin {
+    width: 100% !important; }
+
   .w-icons img {
     width: 90%; }
 
@@ -528,7 +628,10 @@ textarea {
     padding-right: 0;
     padding-left: 0; }
     .user-info .user-name {
-      margin-left: 0.25em; } }
+      margin-left: 0.25em; }
+
+  .links li {
+    padding-right: 0; } }
 @media screen and (max-width: 480px) {
   /* en dessous de 480px - MOBILE */ }
 
