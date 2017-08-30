@@ -57,6 +57,9 @@
               <div class="row center-lg between-lg between-xs center-xs">
                 <div class="col-lg-4" ng-repeat="recipe in services.recipe">
                   <h2>{{recipe.title }}</h2>
+                  <p>{{recipe.difficulty }}</p>
+                  <p>{{recipe.duration_preparation }}</p>
+                  <p>{{recipe.cost | currency}}</p>
                   <div class="api-img">
                     <img src="{{ recipe.image }}"
                          alt="recipe {{recipe.title }}">
@@ -104,8 +107,12 @@
                 <span>Activities</span>
             </label>
             <div class="tab-content acti-content">
-              <div ng-repeat="activity in services.activities">
-                {{ activity }}
+              <div class="row center-xs">
+                <div class="col-lg-6"
+                     ng-repeat="activity in services.activities">
+                  <img src="img/activities/cinema.png" alt="">
+                  <span>{{ activity }}</span>
+                </div>
               </div>
             </div>
         </div>
