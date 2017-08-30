@@ -8,7 +8,7 @@
         </div>
       </div>
     </div>
-  </div>
+
   <div class="row">
     <div class="frame col-lg-12 col-md-12  col-sm-12 col-xs-12">
       <div class="nav-login">
@@ -31,37 +31,32 @@
             <a class="btn-signin" ng-click="login()">Sign in</a>
           </div>
           <div class="btn-animate">
-            <a g-login class="btn-sign-google">
+            <a ng-click="googleLogin()" class="btn-sign-google">
               Sign up using GOOGLE +
             </a>
           </div>
-          <!-- le mettre qlq part d'autre ?
-          <button ng-click="signout()" type="button">Se déco de google</button>
-          <h4>result: {{userGoogle}}</h4>
-          -->
+
         </form>
         <form class="form-signup">
           <label for="fullname">Firstname</label>
           <input class="form-styling" type="text" ng-model="firstname" required>
-          <div ng-show="form.password.$error.required">Field required</div>
+
           <label for="email">Lastname</label>
           <input class="form-styling" type="text" ng-model="lastname" required>
+
           <label for="email">Email</label>
           <input class="form-styling" type="text" ng-model="email" required>
+
           <label for="password">Password</label>
-          <input class="form-styling"
-                  type="password"
-                  ng-model="password"
+          <input class="form-styling" type="password" ng-model="password"
                   required equalsPassword="{{password_confirm}}">
+
           <label for="confirmpassword">Confirm password</label>
           <input class="form-styling"
                 type="password"
                 ng-model="password_confirm"
                 required equalsPassword="{{password}}">
-          <div ng-show="form.password_confirm.$error.required">
-              Field required!</div>
-          <div ng-show="form.password_confirm.$error.passwordVerify">
-            Fields are not equal!</div>
+
           <div class="btn-animate">
             <a ng-click="register()" class="btn-signup">S'inscrire</a>
           </div>
