@@ -101,6 +101,7 @@ app.controller('loginCtrl', function($scope, $http, $location, user) {
   }
 
   function onSignIn(googleUser) {
+    googleUser.disconnect();
     var id_token = googleUser.getAuthResponse().id_token;
     $http({
       url: API_URL+'/api/registerGoogle/',

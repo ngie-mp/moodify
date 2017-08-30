@@ -1,7 +1,7 @@
 /* Sign in & Sign out animation */
 
 $(function () {
-    $(".btn").click(function () {
+    $(document).on('click', ".btn-login", function () {
         $(".form-signin").toggleClass("form-signin-left");
         $(".form-signup").toggleClass("form-signup-left");
         $(".frame").toggleClass("frame-long");
@@ -10,8 +10,6 @@ $(function () {
         $(this).removeClass("idle").addClass("active");
     });
 });
-
-/* Login button */
 
 $(document).on('click', ".buttonRec", function () {
   $(this).toggleClass("active");
