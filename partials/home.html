@@ -1,11 +1,14 @@
+<div ng-show="showloader" class="overlay-result">
+  <div class="loader"></div>
+</div>
 <div class="row toolbar">
   <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
     <a href="/#!/logout/" class="btn-signout"><span><img src="/img/sign-out.png" alt="Sign out"></span></a>
   </div>
   <div class="user-info col-md-6 col-lg-6 col-sm-6 col-xs-6">
-    <span class="user-name">{{user.firstname}}{{user.lastname}} Martin HACHE</span>
+    <span class="user-name">{{user.firstname}}{{user.lastname}}</span>
     <div class="user-img">
-    <img src="/img/{{user.avatar != null ? user.avatar : 'user-no-avatar.png'}}" alt="">
+      <img src="{{user.avatar != null ? user.avatar : '/img/user-no-avatar.png'}}" alt="">
     </div>
   </div>
 </div>
@@ -51,18 +54,16 @@
                 <span>Food</span>
             </label>
             <div class="tab-content food-content">
-              <div class="row between-lg">
-                <div class="col-lg-4">
-                  <img src="img/food/food-1.jpg" alt="" class="col-lg-12">
-                    <a href="#">voir recette</a>
-                </div>
-                <div class="col-lg-4">
-                  <img src="img/food/food-2.jpg" alt=""  class="col-lg-12">
-                    <a href="#">voir recette</a>
-                </div>
-                <div class="col-lg-4">
-                  <img src="img/food/food-3.jpg" alt=""  class="col-lg-12">
-                    <a href="#">voir recette</a>
+              <div class="row center-lg between-lg between-xs center-xs">
+                <div class="col-lg-4" ng-repeat="recipe in services.recipe">
+                  <h2>{{recipe.title }}</h2>
+                  <div class="api-img">
+                    <img src="{{ recipe.image }}"
+                         alt="recipe {{recipe.title }}">
+                  </div>
+                  <div class="info-food">
+                    <a href="{{recipe.source_url}}">voir recette</a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -73,41 +74,54 @@
                 <img src="/img/drinks/glass.png" alt="">
                 <span>Drinks</span>
             </label>
-            <div class="tab-content">
-              <div class="row center-lg">
-                <div id="real" class="col-lg-4">
-                    <h2>Alcoholic drink <div id="drinksA">Salty Dog</div> </h2>
-                    <iframe width="450" height="300" id="videoA" src="https://www.youtube.com/embed/SwBtnLe7lRc" frameborder="0" allowfullscreen=""></iframe>
+            <div class="tab-content drink-content">
+              <div class="row center-lg between-lg between-xs center-xs">
+                <div class="col-lg-6 col-xs-12">
+                  <div class="drink-alc">
+                    <span class="title">
+                      <img src="img/drinks/cocktail.png" alt="">Alcohol Drink
+                    </span>
+                    <h3>{{ services.drink_alcohol.name }}</h3>
+                    <iframe width="80%" height="400" ng-src="{{trustSrc(services.drink_alcohol.url_video)}}" frameborder="0" allowfullscreen></iframe>
+                  </div>
                 </div>
-                <div id="big" class="col-lg-4">
-                    <h2>Soft drink <div id="drinksNA">Ping-pong</div> </h2>
-                    <iframe width="450" height="300" id="videoNA" frameborder="0" allowfullscreen="" src="https://www.youtube.com/embed/zuPwKhVlQgs"></iframe>
-                </div>
-                <div class="col-lg-4">
-                    <h2>Soft drink <div id="drinksNA">Ping-pong</div> </h2>
-                    <iframe width="450" height="300" id="videoNA" frameborder="0" allowfullscreen="" src="https://www.youtube.com/embed/zuPwKhVlQgs"></iframe>
+                <div class="col-lg-6 col-xs-12">
+                  <div class="drink-no-alc">
+                    <span class="title">
+                      <img src="img/drinks/lemonade.png" alt="">Alcohol free Drink
+                    </span>
+                    <h3>{{ services.drink_not_alcohol.name }}</h3>
+                    <iframe width="80%" height="400" ng-src="{{trustSrc(services.drink_not_alcohol.url_video)}}" frameborder="0" allowfullscreen></iframe>
+                  </div>
                 </div>
               </div>
             </div>
         </div>
         <input type="radio" name="tabs" id="activities">
-        <div class="tab-label-content" id="tab3-content">
+        <div class="tab-label-content" id="tab3-content" >
             <label for="activities">
                 <img src="/img/activities/activities.png" alt="">
                 <span>Activities</span>
             </label>
-            <div class="tab-content">Here on propose une activité selon la météo, if --&gt; fait beau alors on les envoie dors, else --&gt; on propose de lire un livre regarder des films, bref</div>
+            <div class="tab-content acti-content">
+              <div ng-repeat="activity in services.activities">
+                {{ activity }}
+              </div>
+            </div>
         </div>
-        <input type="radio" name="tabs" id="movies">
+        <input type="radio" name="tabs" id="series">
         <div class="tab-label-content" id="tab4-content">
-            <label for="movies">
+            <label for="series">
                 <img src="/img/movies/old-television.png" alt="">
-                <span>Movies &amp; series</span>
+                <span>Series</span>
             </label>
-            <div class="tab-content">
-                <section id="steezy">
-                    <div id="serie">If You See God, Tell Him</div>
-                </section>
+            <div class="tab-content series-content">
+              <div>
+                {{ services.series.title}}
+                <img ng-src="{{ services.series.image }}"
+                     alt="{{ services.series.title}}">
+                    {{ services.series.description}}
+              </div>
             </div>
         </div>
         <div class="slide"></div>
