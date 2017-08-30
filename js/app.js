@@ -4,6 +4,13 @@ var app = angular.module('MoodApp', ['ngRoute']);
 app.config(function($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {
+      resolve: {
+        check: function($location, user) {
+          if(user.isUserLoggedIn()) {
+            $location.path('/search');
+          }
+        },
+      },
       templateUrl: 'partials/login.html',
       controller : 'loginCtrl'
     }).
