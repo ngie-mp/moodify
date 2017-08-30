@@ -2,8 +2,23 @@ app.controller('speechtCtrl', function speechtCtrl($scope, $http, user) {
   $scope.title = 'search';
   $scope.user = user.getUser();
 
+  var recognition;
   var accessToken = "4b8289d60d15475f8380de1d4086aff6";
   var baseUrl = "https://api.api.ai/v1/";
+
+  $scope.switchRecognition = function() {
+      if (recognition) {
+          stopRecognition();
+      } else {
+          startRecognition();
+      }
+  }
+
+  $scope.keyPress = function(){
+
+  }
+
+
   $(document).ready(function () {
       $("#input").keypress(function (event) {
           if (event.which == 13) {
@@ -15,7 +30,6 @@ app.controller('speechtCtrl', function speechtCtrl($scope, $http, user) {
           switchRecognition();
       });
   });
-  var recognition;
 
   function startRecognition() {
       recognition = new webkitSpeechRecognition();
@@ -42,14 +56,6 @@ app.controller('speechtCtrl', function speechtCtrl($scope, $http, user) {
       if (recognition) {
           recognition.stop();
           recognition = null;
-      }
-  }
-
-  function switchRecognition() {
-      if (recognition) {
-          stopRecognition();
-      } else {
-          startRecognition();
       }
   }
 
