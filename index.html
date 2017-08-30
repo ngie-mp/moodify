@@ -10,25 +10,25 @@
     <link rel="stylesheet" href="css/app.css">
     <script type="text/javascript" src="node_modules/angular/angular.js"></script>
     <script type="text/javascript" src="node_modules/angular-route/angular-route.js"></script>
+    <script src="node_modules/angular-sanitize/angular-sanitize.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
-
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-
   </head>
   <body>
-
-    <div class="g-signin2" id="googleAuth" data-onsuccess="onSignIn" data-theme="dark" style="display: none;"></div>
+    <div class="g-signin2"
+         id="googleAuth"
+         data-onsuccess="onSignIn"
+         data-theme="dark"
+         style="display: none;">
+    </div>
     <h1>{{ title }}</h1>
-     <div ng-view></div>
+    <div ng-view></div>
     <script type="text/javascript" src="node_modules/jquery/dist/jquery.js">
     </script>
     <script type="text/javascript" src="js/tools.js">
     </script>
     <script type="text/javascript" src="js/speechtotxt.js">
     </script>
-
   </body>
 </html>
-
-
 <!-- https://2e191406.ngrok.io -->
