@@ -1,6 +1,6 @@
 const API_URL = "http://api.moodify.dev";
 
-var app = angular.module('MoodApp', ['ngRoute']);
+var app = angular.module('MoodApp', ['ngRoute', 'ngSanitize']);
 app.config(function($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {
@@ -171,13 +171,20 @@ app.controller('loginCtrl', function($scope, $http, $location, user) {
 });
 
 // Page results : /home/
-app.controller('resultsCtrl', function parentCtrl($scope, $http) {
+app.controller('resultsCtrl', function parentCtrl($scope, $http, $sce, user) {
   $scope.title = 'result';
+  $scope.user = user.getUser();
+  $scope.showloader = true;
+
+  $scope.trustSrc = function(src) {
+    return $sce.trustAsResourceUrl(src);
+  }
 
   $http.get(API_URL + '/api/home/lyon').then(function(response) {
     if(response.data.return_code == 0) {
       $scope.services = response.data.returns;
       console.log(response.data);
+      $scope.showloader = false;
     } else {
       alert('error : ' + response.data.error);
     }

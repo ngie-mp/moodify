@@ -58,10 +58,6 @@ app.controller('speechtCtrl', function speechtCtrl($scope, $http, user) {
       send();
   }
 
-  /*function setInput2(text) {
-      $('#city').val(text);
-  }*/
-
   function send() {
     var text = $("#input").val();
     var non_compris = "";
@@ -71,7 +67,7 @@ app.controller('speechtCtrl', function speechtCtrl($scope, $http, user) {
      url: baseUrl + "query?v=20150910",
      headers: {
        'Content-Type': 'application/json; charset=utf-8',
-       "Authorization": "Bearer " + accessToken       
+       "Authorization": "Bearer " + accessToken
      },
      data: JSON.stringify({query: text, lang: "en", sessionId: "somerandomthing"})
     }
