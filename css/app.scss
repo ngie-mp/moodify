@@ -182,9 +182,49 @@ input[type="radio"][name="tabs"] {
         margin-right: 0.5em;
       }
     }
-    .info-food {
-      a {
-        text-align: center;
+    .food-wrap {
+      background: #ffffff;
+      border: 1px solid red;
+      color: #363636;
+      .info-food {
+        .btn {
+          a {
+            text-align: center;
+          }
+        }
+      }
+      .title {
+        text-transform: uppercase;
+        font-size: 1em;
+      }
+      .bx-wrap {
+        margin-top: 2em;
+        .bx {
+          border-right: 1px #d4d4d4 solid;
+          font-weight: 600;
+          &:last-child {
+            border-right: none;
+          }
+          span {
+            display: block;
+            padding: 0.2em 2.5em;
+          }
+          .cost {
+            background: url('../img/cost.png');
+            background-repeat: no-repeat;
+            background-position-x: 10%;
+          }
+          .level {
+            background: url('../img/level.png');
+            background-repeat: no-repeat;
+            background-position-x: 20%;
+          }
+          .duration {
+            background: url('../img/duration.png');
+            background-repeat: no-repeat;
+            background-position-x: 20%;
+          }
+        }
       }
     }
   }
@@ -212,7 +252,7 @@ input[type="radio"][name="tabs"] {
 .toolbar {
   background: #00738a;
   padding: 0.5em 1.5em;
-  margin-bottom: 5em;
+  margin-bottom: 1em;
 }
 
 .user-info {
@@ -303,30 +343,33 @@ input[type="radio"][name="tabs"] {
     .box {
       padding-left: 1em;
     }
-    .bx {
-      border-right: 1px #d4d4d4 solid;
-      font-weight: 600;
-      &:last-child {
-        border-right: none;
-      }
-      span {
-        display: block;
-        padding: 0.2em  0.5em;
-      }
-      .cost {
-        background: url('../img/cost.png');
-        background-repeat: no-repeat;
-        background-position-x: 20%;
-      }
-      .level {
-        background: url('../img/level.png');
-        background-repeat: no-repeat;
-        background-position-x: 20%;
-      }
-      .duration {
-        background: url('../img/duration.png');
-        background-repeat: no-repeat;
-        background-position-x: 20%;
+    .bx-wrap {
+      margin-top: 2em;
+      .bx {
+        border-right: 1px #d4d4d4 solid;
+        font-weight: 600;
+        &:last-child {
+          border-right: none;
+        }
+        span {
+          display: block;
+          padding: 0.2em 2.5em;
+        }
+        .cost {
+          background: url('../img/cost.png');
+          background-repeat: no-repeat;
+          background-position-x: 2%;
+        }
+        .level {
+          background: url('../img/level.png');
+          background-repeat: no-repeat;
+          background-position-x: 2%;
+        }
+        .duration {
+          background: url('../img/duration.png');
+          background-repeat: no-repeat;
+          background-position-x: 2%;
+        }
       }
     }
   }

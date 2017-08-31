@@ -161,8 +161,37 @@ input[type="radio"][name="tabs"] {
     .tab-label-content .food-content .api-img img {
       max-height: 100%;
       margin-right: 0.5em; }
-  .tab-label-content .food-content .info-food a {
-    text-align: center; }
+  .tab-label-content .food-content .food-wrap {
+    background: #ffffff;
+    border: 1px solid red;
+    color: #363636; }
+    .tab-label-content .food-content .food-wrap .info-food .btn a {
+      text-align: center; }
+    .tab-label-content .food-content .food-wrap .title {
+      text-transform: uppercase;
+      font-size: 1em; }
+    .tab-label-content .food-content .food-wrap .bx-wrap {
+      margin-top: 2em; }
+      .tab-label-content .food-content .food-wrap .bx-wrap .bx {
+        border-right: 1px #d4d4d4 solid;
+        font-weight: 600; }
+        .tab-label-content .food-content .food-wrap .bx-wrap .bx:last-child {
+          border-right: none; }
+        .tab-label-content .food-content .food-wrap .bx-wrap .bx span {
+          display: block;
+          padding: 0.2em 2.5em; }
+        .tab-label-content .food-content .food-wrap .bx-wrap .bx .cost {
+          background: url("../img/cost.png");
+          background-repeat: no-repeat;
+          background-position-x: 10%; }
+        .tab-label-content .food-content .food-wrap .bx-wrap .bx .level {
+          background: url("../img/level.png");
+          background-repeat: no-repeat;
+          background-position-x: 20%; }
+        .tab-label-content .food-content .food-wrap .bx-wrap .bx .duration {
+          background: url("../img/duration.png");
+          background-repeat: no-repeat;
+          background-position-x: 20%; }
   .tab-label-content .drink-content iframe {
     padding: 2em; }
   .tab-label-content .drink-content .title {
@@ -181,7 +210,7 @@ input[type="radio"][name="tabs"] {
 .toolbar {
   background: #00738a;
   padding: 0.5em 1.5em;
-  margin-bottom: 5em; }
+  margin-bottom: 1em; }
 
 .user-info .user-name {
   color: #f6f6f6;
@@ -253,26 +282,28 @@ input[type="radio"][name="tabs"] {
     text-align: left; }
     .r-wrap .recipe-detail .box {
       padding-left: 1em; }
-    .r-wrap .recipe-detail .bx {
-      border-right: 1px #d4d4d4 solid;
-      font-weight: 600; }
-      .r-wrap .recipe-detail .bx:last-child {
-        border-right: none; }
-      .r-wrap .recipe-detail .bx span {
-        display: block;
-        padding: 0.2em  0.5em; }
-      .r-wrap .recipe-detail .bx .cost {
-        background: url("../img/cost.png");
-        background-repeat: no-repeat;
-        background-position-x: 20%; }
-      .r-wrap .recipe-detail .bx .level {
-        background: url("../img/level.png");
-        background-repeat: no-repeat;
-        background-position-x: 20%; }
-      .r-wrap .recipe-detail .bx .duration {
-        background: url("../img/duration.png");
-        background-repeat: no-repeat;
-        background-position-x: 20%; }
+    .r-wrap .recipe-detail .bx-wrap {
+      margin-top: 2em; }
+      .r-wrap .recipe-detail .bx-wrap .bx {
+        border-right: 1px #d4d4d4 solid;
+        font-weight: 600; }
+        .r-wrap .recipe-detail .bx-wrap .bx:last-child {
+          border-right: none; }
+        .r-wrap .recipe-detail .bx-wrap .bx span {
+          display: block;
+          padding: 0.2em 2.5em; }
+        .r-wrap .recipe-detail .bx-wrap .bx .cost {
+          background: url("../img/cost.png");
+          background-repeat: no-repeat;
+          background-position-x: 2%; }
+        .r-wrap .recipe-detail .bx-wrap .bx .level {
+          background: url("../img/level.png");
+          background-repeat: no-repeat;
+          background-position-x: 2%; }
+        .r-wrap .recipe-detail .bx-wrap .bx .duration {
+          background: url("../img/duration.png");
+          background-repeat: no-repeat;
+          background-position-x: 2%; }
 
 .row {
   margin-left: 0 !important;
