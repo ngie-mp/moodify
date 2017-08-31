@@ -22,7 +22,6 @@ $(document).on('click', '#openResearch', function(){
     $("#openResearch").css('bottom', '0');
   }else{
     $(".sticky-input").show()
-    $("#openResearch img").css({'transform': 'rotate(-180deg)'});
-    $("#openResearch").css('bottom', '142px');
+    $("#openResearch").css();
   }
 })
