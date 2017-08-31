@@ -161,8 +161,37 @@ input[type="radio"][name="tabs"] {
     .tab-label-content .food-content .api-img img {
       max-height: 100%;
       margin-right: 0.5em; }
-  .tab-label-content .food-content .info-food a {
-    text-align: center; }
+  .tab-label-content .food-content .food-wrap {
+    background: #ffffff;
+    border: 1px solid red;
+    color: #363636; }
+    .tab-label-content .food-content .food-wrap .info-food .btn a {
+      text-align: center; }
+    .tab-label-content .food-content .food-wrap .title {
+      text-transform: uppercase;
+      font-size: 1em; }
+    .tab-label-content .food-content .food-wrap .bx-wrap {
+      margin-top: 2em; }
+      .tab-label-content .food-content .food-wrap .bx-wrap .bx {
+        border-right: 1px #d4d4d4 solid;
+        font-weight: 600; }
+        .tab-label-content .food-content .food-wrap .bx-wrap .bx:last-child {
+          border-right: none; }
+        .tab-label-content .food-content .food-wrap .bx-wrap .bx span {
+          display: block;
+          padding: 0.2em 2.5em; }
+        .tab-label-content .food-content .food-wrap .bx-wrap .bx .cost {
+          background: url("../img/cost.png");
+          background-repeat: no-repeat;
+          background-position-x: 10%; }
+        .tab-label-content .food-content .food-wrap .bx-wrap .bx .level {
+          background: url("../img/level.png");
+          background-repeat: no-repeat;
+          background-position-x: 20%; }
+        .tab-label-content .food-content .food-wrap .bx-wrap .bx .duration {
+          background: url("../img/duration.png");
+          background-repeat: no-repeat;
+          background-position-x: 20%; }
   .tab-label-content .drink-content iframe {
     padding: 2em; }
   .tab-label-content .drink-content .title {
@@ -181,7 +210,7 @@ input[type="radio"][name="tabs"] {
 .toolbar {
   background: #00738a;
   padding: 0.5em 1.5em;
-  margin-bottom: 5em; }
+  margin-bottom: 1em; }
 
 .user-info .user-name {
   color: #f6f6f6;
@@ -220,6 +249,62 @@ input[type="radio"][name="tabs"] {
       font-size: 0.6em; }
       .tab-wrap label img {
         width: 6%; } }
+.searched-title {
+  color: #f6f6f6;
+  font-size: 2em;
+  font-weight: 300;
+  margin-bottom: 1em; }
+  .searched-title span {
+    font-style: italic;
+    font-weight: 600; }
+
+.r-wrap {
+  padding-left: 0;
+  padding-right: 0;
+  background: #ffffff;
+  height: 240px;
+  overflow: hidden;
+  margin-bottom: 2em; }
+  .r-wrap .title {
+    font-size: 1.5em;
+    margin: 0.5em 0;
+    text-align: center;
+    text-transform: uppercase; }
+  .r-wrap h2, .r-wrap h3 {
+    margin: 0; }
+  .r-wrap .r-pic {
+    padding-left: 0;
+    padding-right: 0; }
+    .r-wrap .r-pic img {
+      width: 100%; }
+  .r-wrap .recipe-detail {
+    color: #363636;
+    text-align: left; }
+    .r-wrap .recipe-detail .box {
+      padding-left: 1em; }
+    .r-wrap .recipe-detail .bx-wrap {
+      margin-top: 2em; }
+      .r-wrap .recipe-detail .bx-wrap .bx {
+        border-right: 1px #d4d4d4 solid;
+        font-weight: 600; }
+        .r-wrap .recipe-detail .bx-wrap .bx:last-child {
+          border-right: none; }
+        .r-wrap .recipe-detail .bx-wrap .bx span {
+          display: block;
+          padding: 0.2em 2.5em; }
+        .r-wrap .recipe-detail .bx-wrap .bx .cost {
+          background: url("../img/cost.png");
+          background-repeat: no-repeat;
+          background-position-x: 2%; }
+        .r-wrap .recipe-detail .bx-wrap .bx .level {
+          background: url("../img/level.png");
+          background-repeat: no-repeat;
+          background-position-x: 2%; }
+        .r-wrap .recipe-detail .bx-wrap .bx .duration {
+          background: url("../img/duration.png");
+          background-repeat: no-repeat;
+          background-position-x: 2%; }
+
 .row {
   margin-left: 0 !important;
   margin-right: 0 !important; }
@@ -253,6 +338,12 @@ input[type="radio"][name="tabs"] {
   padding-top: 40px;
   opacity: 1;
   transition: all .5s ease; }
+  .nav-login li {
+    font-size: 18px;
+    display: inline;
+    text-transform: uppercase;
+    padding-right: 35px;
+    color: #ffffff; }
 
 .links {
   text-align: center; }
@@ -260,13 +351,6 @@ input[type="radio"][name="tabs"] {
 .nav-up {
   transform: translateY(-100px);
   opacity: 0; }
-
-li {
-  font-size: 18px;
-  display: inline;
-  text-transform: uppercase;
-  padding-right: 35px;
-  color: #ffffff; }
 
 .signin-active a {
   padding-bottom: 10px;
@@ -630,9 +714,62 @@ textarea {
     .user-info .user-name {
       margin-left: 0.25em; }
 
+  .searched-title {
+    padding: 0.5em;
+    font-size: 1.5em; }
+
+  .r-wrap {
+    height: 80vh; }
+    .r-wrap .recipe-detail .bx .cost {
+      background-position-x: 5%;
+      padding: 0.2em  1em; }
+    .r-wrap .recipe-detail .bx .level {
+      background-position-x: 5%;
+      padding: 0.2em  1em; }
+    .r-wrap .recipe-detail .bx .duration {
+      background-position-x: 5%;
+      padding: 0.2em  1.8em; }
+
   .links li {
     padding-right: 0; } }
-@media screen and (max-width: 480px) {
-  /* en dessous de 480px - MOBILE */ }
+.arrow {
+  position: fixed;
+  bottom: 30px;
+  height: 100px;
+  margin: auto 45%; }
+  .arrow span {
+    color: #f6f6f6;
+    font-style: italic;
+    font-weight: 300;
+    display: block;
+    text-align: center;
+    margin-top: 0.8em; }
+  .arrow img {
+    display: block;
+    margin: 0 auto; }
+
+.bounce {
+  -webkit-animation: bounce 2s infinite;
+  animation: bounce 2s infinite; }
+
+@keyframes bounce {
+  0%,20%,50%,80%,100% {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0); }
+  40% {
+    -webkit-transform: translateY(-30px);
+    -moz-transform: translateY(-30px);
+    -ms-transform: translateY(-30px);
+    -o-transform: translateY(-30px);
+    transform: translateY(-30px); }
+  60% {
+    -webkit-transform: translateY(-15px);
+    -moz-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    -o-transform: translateY(-15px);
+    transform: translateY(-15px); } }
 
 /*# sourceMappingURL=app.css.map */

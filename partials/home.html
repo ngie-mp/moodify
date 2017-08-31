@@ -37,7 +37,11 @@
                   {{ services.weather.ville }}
                 </div>
                 <div id="date">
+<<<<<<< HEAD
                     <span class="time" id="heure_ville">{{ datenow }}</span>
+=======
+                  <span class="time" id="heure_ville">17:00</span>
+>>>>>>> 3000912410e3190398a7b1a47eefdaccf4e9dd2a
                 </div>
                 <span id="statut_ville" class="status">{{ services.weather.condition }}</span>
             </div>
@@ -49,22 +53,36 @@
         <input type="radio" name="tabs" id="food" checked="">
         <div class="tab-label-content" id="tab1-content">
             <label for="food">
-                <img src="/img/food/chicken.png" alt="">
-                <span>Food</span>
+              <img src="/img/food/chicken.png" alt="">
+              <span>Food</span>
             </label>
             <div class="tab-content food-content">
-              <div class="row center-lg between-lg between-xs center-xs">
-                <div class="col-lg-4" ng-repeat="recipe in services.recipe">
-                  <h2>{{recipe.title }}</h2>
-                  <p>{{recipe.difficulty }}</p>
-                  <p>{{recipe.duration_preparation }}</p>
-                  <p>{{recipe.cost | currency}}</p>
-                  <div class="api-img">
-                    <img src="{{ recipe.image }}"
-                         alt="recipe {{recipe.title }}">
+              <div class="row center-lg center-xs">
+                <div class="col-lg-4 food-wrap" ng-repeat="recipe in services.recipe">
+                  <div class="">
+                    <h2 class="title">{{recipe.title }}</h2>
+                    <div class="col-lg-12 row bx-wrap">
+                      <div class="col-lg-4 bx col-xs-4">
+                         <span class="cost">{{recipe.cost | currency}}</span>
+                      </div>
+                      <div class="col-lg-4 bx col-xs-4">
+                        <span class="level">{{recipe.difficulty }}</span>
+                      </div>
+                      <div class="col-lg-4 bx col-xs-4">
+                        <span class="duration">{{recipe.duration_preparation }}</span>
+                      </div>
+                    </div>
                   </div>
-                  <div class="info-food">
-                    <a href="{{recipe.source_url}}">voir recette</a>
+                  <div class="">
+                    <div class="api-img">
+                      <img src="{{ recipe.image }}"
+                           alt="recipe {{recipe.title }}">
+                    </div>
+                    <div class="info-food">
+                      <div class="btn">
+                        <a href="/#!/recipe-detail/{{recipe.title }}">voir recette</a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -132,8 +150,12 @@
         </div>
         <div class="slide"></div>
     </div>
-
-<div style="width: 100%; position: fixed; bottom: 0; z-index: 2; text-align: center;" id="openResearch"> <img  style="width: 40px;" src="/img/1.svg"> </img> </div>
+    <div class="arrow bounce" id="openResearch">
+      <img src="img/microred.png" alt="">
+      <span>veuillez cliquer pour cherché</span>
+    </div>
+<!--<div style="width: 100%; position: fixed; bottom: 0; z-index: 2; text-align: center;"
+ id="openResearch"> <img  style="width: 40px;" src="/img/1.svg"> </img> </div>-->
 <div class="sticky-input row" style="display: none; ">
     <div class="col-lg-12 col-sm-12 col-xs-12">
         <div class="effectwrap">

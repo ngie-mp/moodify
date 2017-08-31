@@ -1,4 +1,4 @@
-const API_URL = "http://api.moodify.dev";
+const API_URL = "http://api.it-squad.fr/";
 const URL_SPEECH_TO_TEXT = "https://api.api.ai/v1/";
 const TOKEN_SPEECH_TO_TEXT = "4b8289d60d15475f8380de1d4086aff6";
 
@@ -57,7 +57,7 @@ app.config(function ($routeProvider, $locationProvider) {
           }
         },
       },
-      templateUrl: 'partials/detail-food.html',
+      templateUrl: 'partials/recipe-detail.html',
       controller: 'homeCtrl'
     }).
     when('/detailUpcomingMovies/', {
@@ -103,6 +103,10 @@ app.config(function ($routeProvider, $locationProvider) {
       },
       templateUrl: 'partials/home.html',
       controller: 'homeCtrl'
+    }).
+    when('/recipe-detail/', {
+      templateUrl: 'partials/recipe-detail.html',
+      controller: 'resultsCtrl'
     }).
     when('/logout/', {
       resolve: {
