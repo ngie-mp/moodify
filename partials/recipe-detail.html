@@ -13,12 +13,13 @@
   <div class="col-lg-12">
     <h1 class="searched-title">Recettes que nous vous proposons à base de <span>{{recipe.itle}} Poulet</span></h1>
   </div>
-  <div class="r-wrap col-lg-10 row">
+  <div class="r-wrap col-lg-10 row" ng-repeat="recipe in services.recipe">
     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 r-pic">
-      <img src="/img/food/food-1.jpg" alt="recipe {{recipe.title }}">
+      <img src="{{ recipe.image }}"
+           alt="recipe {{recipe.title }}">
     </div>
     <div class="col-lg-8 col-md-6 col-sm-12 col-xs-12 recipe-detail">
-      <h2 class="title">Recipe title</h2>
+      <h2 class="title">{{recipe.title }}</h2>
       <div class="box col-lg-12">
         <h3>Ingridients</h3>
         <ul class="ingridients">
@@ -29,39 +30,13 @@
       </div>
       <div class="col-lg-12 row center-lg center-xs center-sm bx-wrap">
         <div class="col-lg-4 bx col-xs-4">
-           <span class="cost">cost</span>
+           <span class="cost">{{recipe.cost | currency}}</span>
         </div>
         <div class="col-lg-4 bx col-xs-4">
-          <span class="level">level</span>
+          <span class="level">{{recipe.difficulty }}</span>
         </div>
         <div class="col-lg-4 bx col-xs-4">
-          <span class="duration">duration</span>
-        </div>
-      </div>
-    </div>
-  </div><div class="r-wrap col-lg-10 row">
-    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 r-pic">
-      <img src="/img/food/food-4.jpg" alt="recipe {{recipe.title }}">
-    </div>
-    <div class="col-lg-8 col-md-6 col-sm-12 col-xs-12 recipe-detail">
-      <h2 class="title">Recipe title</h2>
-      <div class="box col-lg-12">
-        <h3>Ingridients</h3>
-        <ul class="ingridients">
-          <li>Ingrdient one</li>
-          <li>Ingrdient two</li>
-          <li>Ingrdient three</li>
-        </ul>
-      </div>
-      <div class="col-lg-12 row center-lg center-xs center-sm bx-wrap">
-        <div class="col-lg-4 bx col-xs-4">
-           <span class="cost">cost</span>
-        </div>
-        <div class="col-lg-4 bx col-xs-4">
-          <span class="level">level</span>
-        </div>
-        <div class="col-lg-4 bx col-xs-4">
-          <span class="duration">duration</span>
+          <span class="duration">{{recipe.duration_preparation }}</span>
         </div>
       </div>
     </div>
