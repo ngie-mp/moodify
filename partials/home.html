@@ -121,9 +121,8 @@
             </label>
             <div class="tab-content acti-content">
               <div class="row center-xs">
-                <div class="col-lg-4"
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"
                      ng-repeat="activity in services.activities">
-                  <img src="img/activities/cinema.png" alt="">
                   <span>{{ activity }}</span>
                 </div>
               </div>
@@ -136,11 +135,15 @@
                 <span>Series</span>
             </label>
             <div class="tab-content series-content">
-              <div>
-                {{ services.series.title}}
-                <img ng-src="{{ services.series.image }}"
-                     alt="{{ services.series.title}}">
-                    {{ services.series.description}}
+              <div class="row col-lg-12 col-md-12 around-lg">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 r-pic">
+                  <img ng-src="{{ services.series.image }}"
+                       alt="{{ services.series.title}}" class="img-movie">
+                </div>
+                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 box">
+                   <h3>{{ services.series.title}}</h3>
+                   <p>{{ services.series.description}}</p>
+                 </div>
               </div>
             </div>
         </div>
