@@ -78,8 +78,8 @@ input[type="radio"][name="tabs"] {
   position: relative;
   width: 12px;
   height: 12px;
-  top: 46%;
-  left: 46%;
+  top: 50%;
+  left: 50%;
   border-radius: 12px;
   background-color: #fff; }
 
@@ -162,8 +162,6 @@ input[type="radio"][name="tabs"] {
       max-height: 100%;
       margin-right: 0.5em; }
   .tab-label-content .food-content .food-wrap {
-    background: #ffffff;
-    border: 1px solid red;
     color: #363636; }
     .tab-label-content .food-content .food-wrap .info-food .btn a {
       text-align: center; }
@@ -198,7 +196,27 @@ input[type="radio"][name="tabs"] {
     text-transform: uppercase;
     color: #f6f6f6;
     margin-top: 1.5em;
-    display: block; }
+    display: block;
+    color: #ffffff;
+    font-weight: 300;
+    background: #363636;
+    padding: 1em 0;
+    font-style: italic; }
+  .tab-label-content .drink-content h3 {
+    font-weight: 300;
+    color: #f6f6f6; }
+  .tab-label-content .series-content img {
+    max-width: 100%; }
+  .tab-label-content .series-content .box {
+    background: #ffffff;
+    padding: 0.8em; }
+  .tab-label-content .acti-content span {
+    display: block;
+    color: #f6f6f6;
+    font-weight: 600;
+    padding: 3.5em 0;
+    background: #363636;
+    margin-top: 2em; }
 
 .sticky-input {
   background: #00738a;
@@ -257,6 +275,26 @@ input[type="radio"][name="tabs"] {
   .searched-title span {
     font-style: italic;
     font-weight: 600; }
+
+.poster-h {
+  height: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  background: #f6f6f6;
+  overflow: hidden;
+  margin-bottom: 2em; }
+  .poster-h .title {
+    font-size: 1.5em;
+    margin: 0.5em 0;
+    text-align: center;
+    text-transform: uppercase; }
+  .poster-h h2, .poster-h h3 {
+    margin: 0; }
+  .poster-h .r-pic {
+    padding-left: 0;
+    padding-right: 0; }
+    .poster-h .r-pic img {
+      width: 100%; }
 
 .r-wrap {
   padding-left: 0;

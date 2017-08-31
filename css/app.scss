@@ -100,15 +100,15 @@ input[type="radio"][name="tabs"] {
 	width: 12px;
 	border-radius: 12px;
 	-webkit-animation: loaderg 3s ease-in-out infinite;
-			animation: loaderg 3s ease-in-out infinite;
+	animation: loaderg 3s ease-in-out infinite;
 }
 
 .loader{
 	position: relative;
 	width: 12px;
 	height: 12px;
-	top: 46%;
-	left: 46%;
+	top: 50%;
+	left: 50%;
 	border-radius: 12px;
 	background-color: #fff;
 }
@@ -183,8 +183,6 @@ input[type="radio"][name="tabs"] {
       }
     }
     .food-wrap {
-      background: #ffffff;
-      border: 1px solid red;
       color: #363636;
       .info-food {
         .btn {
@@ -237,6 +235,35 @@ input[type="radio"][name="tabs"] {
       color: #f6f6f6;
       margin-top: 1.5em;
       display: block;
+      color: #ffffff;
+      font-weight: 300;
+      background: #363636;
+      padding: 1em 0;
+      font-style: italic;
+    }
+    h3 {
+      font-weight: 300;
+      color: #f6f6f6;
+    }
+  }
+  .series-content {
+    img {
+      max-width: 100%;
+    }
+    .box {
+      background: #ffffff;
+      padding: 0.8em;
+    }
+  }
+
+  .acti-content {
+    span {
+      display: block;
+      color: #f6f6f6;
+      font-weight: 600;
+      padding: 3.5em 0;
+      background: #363636;
+      margin-top: 2em;
     }
   }
 }
@@ -314,6 +341,30 @@ input[type="radio"][name="tabs"] {
   }
 }
 
+.poster-h {
+  height: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  background: #f6f6f6;
+  overflow:hidden;
+  margin-bottom: 2em;
+  .title {
+    font-size: 1.5em;
+    margin: 0.5em 0;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  h2, h3{
+    margin: 0;
+  }
+  .r-pic {
+    padding-left: 0;
+    padding-right: 0;
+    img {
+      width: 100%;
+    }
+  }
+}
 .r-wrap {
   padding-left: 0;
   padding-right: 0;
