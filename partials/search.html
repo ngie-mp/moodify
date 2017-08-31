@@ -22,7 +22,7 @@
 </div>
 <div class="">
 	<div id="body_corp">
-		<input id="input" type="text" placeholder="Dite &quot;Météo à&quot; + nom de la ville !">
+		<input ng-model="inputSearch" type="text" placeholder="Dite &quot;Météo à&quot; + nom de la ville !" ng-keypress="keyPress($event)">
 		<div class="buttonRec" ng-click="switchRecognition()">
 			<div class="innerRec">
 			</div>
