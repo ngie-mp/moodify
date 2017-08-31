@@ -1,22 +1,22 @@
 <div ng-show="showloader" class="overlay-result">
-  <div class="loader"></div>
+    <div class="loader"></div>
 </div>
 <div class="row toolbar">
-  <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
-    <a href="/#!/logout/" class="btn-signout"><span><img src="/img/sign-out.png" alt="Sign out"></span></a>
-  </div>
-  <div class="user-info col-md-6 col-lg-6 col-sm-6 col-xs-6">
-    <span class="user-name">{{user.firstname}} {{user.lastname}}</span>
-    <div class="user-img">
-      <img src="{{user.avatar != null ? user.avatar : '/img/user-no-avatar.png'}}" alt="">
+    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
+        <a href="/#!/logout/" class="btn-signout"><span><img src="/img/sign-out.png" alt="Sign out"></span></a>
     </div>
-  </div>
+    <div class="user-info col-md-6 col-lg-6 col-sm-6 col-xs-6">
+        <span class="user-name">{{user.firstname}} {{user.lastname}}</span>
+        <div class="user-img">
+            <img src="{{user.avatar != null ? user.avatar : '/img/user-no-avatar.png'}}" alt="">
+        </div>
+    </div>
 </div>
 <header>
     <div class="weather row center-lg center-xs">
         <div class="col-lg-6 col-xs-6">
             <div class="w-icons">
-              <img src="/img/weather/wind.svg" alt="">
+                <img src="/img/weather/wind.svg" alt="">
             </div>
         </div>
         <div class="col-lg-6 col-xs-6">
@@ -30,13 +30,13 @@
         </div>
         <div class="col-lg-6 col-xs-6 temp-wrap">
             <div class="temp-city" id="temperature_ville">
-              {{ services.weather.tmp }}<span> °c</span>
+                {{ services.weather.tmp }}<span> °c</span>
             </div>
         </div>
         <div class="col-lg-6 col-xs-6">
             <div class="locate-review">
                 <div class="city" id="name_ville">
-                  {{ services.weather.ville }}
+                    {{ services.weather.ville }}
                 </div>
                 <div id="date">
                     <span class="time" id="heure_ville">{{ datenow }}</span>
@@ -55,35 +55,47 @@
               <span>Food</span>
             </label>
             <div class="tab-content food-content">
-              <div class="row center-lg center-xs">
-                <div class="col-lg-4 food-wrap" ng-repeat="recipe in services.recipe">
-                  <div class="">
-                    <h2 class="title">{{recipe.title }}</h2>
-                    <div class="col-lg-12 row bx-wrap">
-                      <div class="col-lg-4 bx col-xs-4">
-                         <span class="cost">{{recipe.cost | currency}}</span>
-                      </div>
-                      <div class="col-lg-4 bx col-xs-4">
-                        <span class="level">{{recipe.difficulty }}</span>
-                      </div>
-                      <div class="col-lg-4 bx col-xs-4">
-                        <span class="duration">{{recipe.duration_preparation }}</span>
-                      </div>
+                <div class="row center-lg center-xs r-wrap" style="height: 400px; background: rgba(255, 255, 255, 0.77);">
+                    <!--<div ng-if="services.recipe != 'limite atteinte'">-->
+                        <div class="col-lg-4 food-wrap" ng-repeat="recipe in services.recipe" style="border-right: solid #333 1px;">
+                            <div class="">
+                                <h2 class="title">{{recipe.title }}</h2>
+                                <div class="col-lg-12 row bx-wrap">
+                                    <div class="col-lg-4 bx col-xs-4">
+                                        <span class="cost">{{recipe.cost | currency}}</span>
+                                    </div>
+                                    <div class="col-lg-4 bx col-xs-4">
+                                        <span class="level">{{recipe.difficulty }}</span>
+                                    </div>
+                                    <div class="col-lg-4 bx col-xs-4">
+                                        <span class="duration">{{recipe.duration_preparation }} "</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="api-img">
+                                    <img src="{{ recipe.image }}" alt="recipe {{recipe.title }}">
+                                </div>
+                                <div class="info-food">
+                                    <div class="btn">                                        
+                                        <a href="{{ recipe.source_url }}" target="_blank"><button style="padding:6px 0 6px 0;
+                                            font:bold 13px Arial;
+                                            background:#478bf9;
+                                            color:#fff;
+                                            border-radius:2px;
+                                            width:100px;
+                                            border:none;
+                                            cursor: pointer;
+                                            margin-top: 10px;">Voir recette</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <!--</div>-->
+                    <div ng-if="services.recipe == 'limite atteinte'">
+                        Limite API food atteinte
                     </div>
-                  </div>
-                  <div class="">
-                    <div class="api-img">
-                      <img src="{{ recipe.image }}"
-                           alt="recipe {{recipe.title }}">
-                    </div>
-                    <div class="info-food">
-                      <div class="btn">
-                        <a href="/#!/recipe-detail/{{recipe.title }}">voir recette</a>
-                      </div>
-                    </div>
-                  </div>
                 </div>
-              </div>
             </div>
         </div>
         <input type="radio" name="tabs" id="drinks">
@@ -93,81 +105,85 @@
                 <span>Drinks</span>
             </label>
             <div class="tab-content drink-content">
-              <div class="row center-lg between-lg between-xs center-xs">
-                <div class="col-lg-6 col-xs-12">
-                  <div class="drink-alc">
-                    <span class="title">
+                <div class="row center-lg between-lg between-xs center-xs">
+                    <div class="col-lg-6 col-xs-12">
+                        <div class="drink-alc">
+                            <span class="title">
                       <img src="img/drinks/cocktail.png" alt="">Alcohol Drink
                     </span>
-                    <h3>{{ services.drink_alcohol.name }}</h3>
-                    <iframe width="80%" height="400" ng-src="{{trustSrc(services.drink_alcohol.url_video)}}" frameborder="0" allowfullscreen></iframe>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-xs-12">
-                  <div class="drink-no-alc">
-                    <span class="title">
+                            <h3>{{ services.drink_alcohol.name }}</h3>
+                            <iframe width="80%" height="400" ng-src="{{trustSrc(services.drink_alcohol.url_video)}}" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xs-12">
+                        <div class="drink-no-alc">
+                            <span class="title">
                       <img src="img/drinks/lemonade.png" alt="">Alcohol free Drink
                     </span>
-                    <h3>{{ services.drink_not_alcohol.name }}</h3>
-                    <iframe width="80%" height="400" ng-src="{{trustSrc(services.drink_not_alcohol.url_video)}}" frameborder="0" allowfullscreen></iframe>
-                  </div>
+                            <h3>{{ services.drink_not_alcohol.name }}</h3>
+                            <iframe width="80%" height="400" ng-src="{{trustSrc(services.drink_not_alcohol.url_video)}}" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
         </div>
         <input type="radio" name="tabs" id="activities">
-        <div class="tab-label-content" id="tab3-content" >
+        <div class="tab-label-content" id="tab3-content">
             <label for="activities">
                 <img src="/img/activities/activities.png" alt="">
                 <span>Activities</span>
             </label>
             <div class="tab-content acti-content">
-              <div class="row center-xs">
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"
-                     ng-repeat="activity in services.activities">
-                  <span>{{ activity }}</span>
+                <div class="row center-xs">
+                    <div ng-if="services.activities != 'no activities'">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" ng-repeat="activity in services.activities">
+                            <span>{{ activity }}</span>
+                        </div>
+                    </div>
+                    <div ng-if="services.activities == 'no activities'">
+                        Pas d'activités associés à la météo.
+                    </div>
                 </div>
-              </div>
             </div>
         </div>
         <input type="radio" name="tabs" id="series">
         <div class="tab-label-content" id="tab4-content">
             <label for="series">
                 <img src="/img/movies/old-television.png" alt="">
-                <span>Series</span>
+                <span>Serie</span>
             </label>
             <div class="tab-content series-content">
-              <div class="row col-lg-12 col-md-12 around-lg">
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 r-pic">
-                  <img ng-src="{{ services.series.image }}"
-                       alt="{{ services.series.title}}" class="img-movie">
+                <div class="row col-lg-12 col-md-12 around-lg">
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 r-pic">
+                        <img ng-src="{{ services.series.image }}" alt="{{ services.series.title}}" class="img-movie">
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 box">
+                        <h3>{{ services.series.title}}</h3>
+                        <p>{{ services.series.description}}</p>
+                    </div>
                 </div>
-                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 box">
-                   <h3>{{ services.series.title}}</h3>
-                   <p>{{ services.series.description}}</p>
-                 </div>
-              </div>
             </div>
         </div>
         <div class="slide"></div>
     </div>
     <div class="arrow bounce" id="openResearch">
-      <img src="img/microred.png" alt="">
-      <span>veuillez cliquer pour cherché</span>
+        <img src="img/microred.png" alt="">
+        <span>veuillez cliquer pour chercher</span>
     </div>
-<!--<div style="width: 100%; position: fixed; bottom: 0; z-index: 2; text-align: center;"
+    <!--<div style="width: 100%; position: fixed; bottom: 0; z-index: 2; text-align: center;"
  id="openResearch"> <img  style="width: 40px;" src="/img/1.svg"> </img> </div>-->
-<div class="sticky-input row" style="display: none; ">
-    <div class="col-lg-12 col-sm-12 col-xs-12">
-        <div class="effectwrap">
-            <input class="effect-9" type="text" placeholder="Dite &quot;Météo à&quot; + nom de la ville !"  ng-keypress="keyPress($event)" ng-model="inputSearch">
-            <span class="focus-border">
+    <div class="sticky-input row" style="display: none; ">
+        <div class="col-lg-12 col-sm-12 col-xs-12">
+            <div class="effectwrap">
+                <input class="effect-9" type="text" placeholder="Dite &quot;Météo à&quot; + nom de la ville !" ng-keypress="keyPress($event)"
+                    ng-model="inputSearch">
+                <span class="focus-border">
             <i></i>
         </span>
+            </div>
+        </div>
+        <div class="buttonRec" ng-click="switchRecognition()">
+            <div class="innerRec">
+            </div>
         </div>
     </div>
-    <div class="buttonRec" ng-click="switchRecognition()">
-        <div class="innerRec">
-        </div>
-    </div>
-</div>

@@ -25,7 +25,7 @@
           </div>
           <label for="password">Mot de passe</label>
           <div class="input password">
-            <input type="password" class="form-styling" ng-model="password">
+            <input type="password" class="form-styling" ng-model="password" ng-keypress="keyPress($event)">
           </div>
           <div class="btn-animate">
             <a class="btn-signin" ng-click="login()">Sign in</a>

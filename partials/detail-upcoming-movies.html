@@ -1,9 +1,12 @@
+<div ng-show="showloader" class="overlay-result">
+    <div class="loader"></div>
+</div>
 <div class="row toolbar">
   <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
     <a href="/#!/home/" class="btn-signout"><span><img src="/img/left-arrow.png" alt="Sign out"></span></a>
   </div>
   <div class="user-info col-md-6 col-lg-6 col-sm-6 col-xs-6">
-    <span class="user-name">{{user.firstname}}{{user.lastname}}</span>
+    <span class="user-name">{{user.firstname}} {{user.lastname}}</span>
     <div class="user-img">
     <img src="{{user.avatar != null ? user.avatar : '/img/user-no-avatar.png'}}" alt="">
     </div>
@@ -11,7 +14,7 @@
 </div>
 <div class="row center-lg center-xs">
   <div class="col-lg-12">
-    <h1 class="searched-title">Voici ce que vous pouvez regarder</h1>
+    <h1 class="searched-title">Voici ce que vous pourrez voir bientôt au cinéma</h1>
   </div>
   <div class="poster-h col-lg-10 row" ng-repeat="movie in upcomingMovies">
     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 r-pic">

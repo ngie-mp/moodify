@@ -1,7 +1,7 @@
+// Page de recherche initial : /search/
 app.controller('speechtCtrl', function speechtCtrl($scope, $rootScope, $http, $location, user, storage) {
     $scope.title = 'search';
     $scope.user = user.getUser();
-    $rootScope.pageAccueil = false;
 
     var recognition;
 
@@ -49,7 +49,7 @@ app.controller('speechtCtrl', function speechtCtrl($scope, $rootScope, $http, $l
     }
 
     function setInput(text) {
-        $scope.inputSearch = null
+        $scope.inputSearch = text;
         send();
     }
 
@@ -68,105 +68,39 @@ app.controller('speechtCtrl', function speechtCtrl($scope, $rootScope, $http, $l
         }
 
         $http(req).then(function (response) {
-            console.log('send success');
             console.log(response);
             var parameter = response.data.result.parameters.parameter;
             var intent = response.data.result.metadata.intentName;
-            var speech = response.data.result.fulfillment.speech;
             actionSpeech(intent, parameter);
-            talkResponse(speech);
         }, function () {
             console.log('Erreur récup Api.Ai => Voir Allow...')
         });
     }
 
-    function actionSpeech(action, parameter) {
+    // On regarde sur quel api on tape avec le retour de API.AI
+    function actionSpeech(action, newParameter) {
         if (action == "weather") {
-          storage.setStorage('weather_ville', parameter);
-          $rootScope.showloader = true;
-          $http.get(API_URL + '/api/home/'+parameter).then(function (response) {
-            if (response.data.return_code == 0) {
-              $rootScope.services = response.data.returns;
-              console.log(response.data);
-              $rootScope.showloader = false;
-              $location.path('/home/');
-            } else {
-              alert('error : ' + response.data.error);
-            }
-          });
-        }else if(action == "drinks"){
-          //$rootScope.showloader = true;
-          $http.get(API_URL + '/api/drinks/'+parameter).then(function (response) {
-            if (response.data.return_code == 0) {
-              $rootScope.drinks = response.data.returns;
-              console.log(response.data);
-              //$rootScope.showloader = false;
-              hideSearchBar();
-              $location.path('/detailDrinks/');
-            } else {
-              alert('error : ' + response.data.error);
-            }
-          });
-        }else if(action == "food"){
-          //$rootScope.showloader = true;
-          $http.get(API_URL + '/api/food/'+parameter).then(function (response) {
-            if (response.data.return_code == 0) {
-              $rootScope.food = response.data.returns;
-              console.log(response.data);
-              //$rootScope.showloader = false;
-              hideSearchBar();
-              $location.path('/detailFood/');
-            } else {
-              alert('error : ' + response.data.error);
-            }
-          });
-        }else if(action == "upcomingMovies"){
-          //$rootScope.showloader = true;
-          $http.get(API_URL + '/api/upcomingMovies/').then(function (response) {
-            if (response.data.return_code == 0) {
-              $rootScope.upcomingMovies = response.data.returns;
-              console.log(response.data);
-              //$rootScope.showloader = false;
-              hideSearchBar();
-              $location.path('/detailUpcomingMovies/');
-            } else {
-              alert('error : ' + response.data.error);
-            }
-          });
-        }else if(action == "TV"){
-          //$rootScope.showloader = true;
-          $http.get(API_URL + '/api/TV/'+parameter).then(function (response) {
-            if (response.data.return_code == 0) {
-              $rootScope.TV = response.data.returns;
-              console.log(response.data);
-              //$rootScope.showloader = false;
-              hideSearchBar();
-              $location.path('/detailTV/');
-            } else {
-              alert('error : ' + response.data.error);
-            }
-          });
-        }else if(action == "activity"){
-          //$rootScope.showloader = true;
-          $http.get(API_URL + '/api/activity/'+parameter).then(function (response) {
-            if (response.data.return_code == 0) {
-              $rootScope.activities = response.data.returns;
-              console.log(response.data);
-              //$rootScope.showloader = false;
-              hideSearchBar();
-              $location.path('/detailActivity/');
-            } else {
-              alert('error : ' + response.data.error);
-            }
-          });
+            storage.setStorage('weather_ville', newParameter);
+            $location.path('/home/');
         }
-    }
-
-    function talkResponse(talk_text) {
-        ;
-        synth = window.speechSynthesis;
-        var utterThis = new SpeechSynthesisUtterance(talk_text);
-        synth.speak(utterThis);
+        else if (action == "drinks") {
+            storage.setStorage('taste_drinks', newParameter);
+            $location.path('/detailDrinks/');
+        }
+        else if (action == "food") {
+            storage.setStorage('ingredient_food', newParameter);
+            $location.path('/detailFood/');
+        }
+        else if (action == "upcomingMovies") {
+            $location.path('/detailUpcomingMovies/');
+        }
+        else if (action == "TV") {
+            storage.setStorage('type_media_tv', newParameter);
+            $location.path('/detailTV/');
+        }
+        else if (action == "activity") {
+            $location.path('/detailActivity/');
+        }
     }
 
 });

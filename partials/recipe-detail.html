@@ -1,9 +1,12 @@
+<div ng-show="showloader" class="overlay-result">
+    <div class="loader"></div>
+</div>
 <div class="row toolbar">
   <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
     <a href="/#!/home/" class="btn-signout"><span><img src="/img/left-arrow.png" alt="Sign out"></span></a>
   </div>
   <div class="user-info col-md-6 col-lg-6 col-sm-6 col-xs-6">
-    <span class="user-name">{{user.firstname}}{{user.lastname}}</span>
+    <span class="user-name">{{user.firstname}} {{user.lastname}}</span>
     <div class="user-img">
     <img src="{{user.avatar != null ? user.avatar : '/img/user-no-avatar.png'}}" alt="">
     </div>
@@ -11,9 +14,9 @@
 </div>
 <div class="row center-lg center-xs">
   <div class="col-lg-12">
-    <h1 class="searched-title">Recettes que nous vous proposons à base de <span>{{recipe.itle}} Poulet</span></h1>
+    <h1 class="searched-title">Recettes que nous vous proposons à base de <span>{{ingredient_food}}</span></h1>
   </div>
-  <div class="r-wrap col-lg-10 row" ng-repeat="recipe in food">
+  <div class="r-wrap col-lg-10 row" ng-repeat="recipe in food" style="height: 100%; padding-bottom: 15px;">
     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 r-pic">
       <img src="{{ recipe.image }}"
            alt="recipe {{recipe.title }}">
@@ -22,7 +25,7 @@
       <h2 class="title">{{recipe.title }}</h2>
       <div class="box col-lg-12">
         <h3>Ingridients</h3>
-        <ul class="ingridients" ng-repeat="ingredient in recipe.ingridients">
+        <ul class="ingridients" ng-repeat="ingredient in recipe.ingredients">
           <li>{{ ingredient }}</li>
         </ul>
       </div>
@@ -34,7 +37,7 @@
           <span class="level">{{recipe.difficulty }}</span>
         </div>
         <div class="col-lg-4 bx col-xs-4">
-          <span class="duration">{{recipe.duration_preparation }}</span>
+          <span class="duration">{{recipe.duration_preparation }} "</span>
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@
     <a href="/#!/logout/" class="btn-signout"><span><img src="/img/sign-out.png" alt="Sign out"></span></a>
   </div>
   <div class="user-info col-md-6 col-lg-6 col-sm-6 col-xs-6">
-    <span class="user-name">{{user.firstname}}{{user.lastname}}</span>
+    <span class="user-name">{{user.firstname}} {{user.lastname}}</span>
     <div class="user-img">
     <img src="{{user.avatar != null ? user.avatar : '/img/user-no-avatar.png'}}" alt="">
     </div>
@@ -15,14 +15,14 @@
       <img src="/img/sun.png" alt="Logo moodify">
       <div class="">
           <h1>Moodify app</h1>
-          <h2 class="wlcome-user">Bonjour, {{user.firstname}}{{user.lastname}}</h2>
+          <h2 class="wlcome-user">Bonjour, {{user.firstname}} {{user.lastname}}</h2>
       </div>
     </div>
   </div>
 </div>
 <div class="">
 	<div id="body_corp">
-		<input ng-model="inputSearch" type="text" placeholder="Dite &quot;Météo à&quot; + nom de la ville !" ng-keypress="keyPress($event)">
+		<input ng-model="inputSearch" id="inputSearch" type="text" placeholder="Dite &quot;Météo à&quot; + nom de la ville !" ng-keypress="keyPress($event)">
 		<div class="buttonRec" ng-click="switchRecognition()">
 			<div class="innerRec">
 			</div>
