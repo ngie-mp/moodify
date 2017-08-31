@@ -1,1 +1,28 @@
-DETAILS TV
+<div class="row toolbar">
+  <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
+    <a href="/#!/home/" class="btn-signout"><span><img src="/img/left-arrow.png" alt="Sign out"></span></a>
+  </div>
+  <div class="user-info col-md-6 col-lg-6 col-sm-6 col-xs-6">
+    <span class="user-name">{{user.firstname}}{{user.lastname}}</span>
+    <div class="user-img">
+    <img src="{{user.avatar != null ? user.avatar : '/img/user-no-avatar.png'}}" alt="">
+    </div>
+  </div>
+</div>
+<div class="row center-lg center-xs">
+  <div class="col-lg-12">
+    <h1 class="searched-title">Voici ce que vous pouvez regarder</h1>
+  </div>
+  <div class="r-wrap col-lg-10 row" ng-repeat="media in services.media">
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 r-pic">
+      <img src="{{ media.poster }}"
+           alt="recipe {{media.title }}">
+    </div>
+    <div class="col-lg-8 col-md-6 col-sm-12 col-xs-12 recipe-detail">
+      <h2 class="title">{{media.title }}</h2>
+      <div class="box col-lg-12">
+        <p>{{ media.synopsis }}</p>
+      </div>
+    </div>
+  </div>
+</div>

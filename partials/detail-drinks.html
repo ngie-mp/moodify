@@ -1,1 +1,36 @@
-DETAILS DRINKS
+<div class="row toolbar">
+  <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
+    <a href="/#!/home/" class="btn-signout"><span><img src="/img/left-arrow.png" alt="Sign out"></span></a>
+  </div>
+  <div class="user-info col-md-6 col-lg-6 col-sm-6 col-xs-6">
+    <span class="user-name">{{user.firstname}}{{user.lastname}}</span>
+    <div class="user-img">
+    <img src="{{user.avatar != null ? user.avatar : '/img/user-no-avatar.png'}}" alt="">
+    </div>
+  </div>
+</div>
+<div class="row center-lg center-xs">
+  <div class="col-lg-12">
+    <h1 class="searched-title">Ici, les boisson que vous pouvez preparer adj</h1>
+  </div>
+  <div class="row center-lg between-lg between-xs center-xs">
+    <div class="col-lg-6 col-xs-12">
+      <div class="drink-alc">
+        <span class="title">
+          <img src="img/drinks/cocktail.png" alt="">Alcohol Drink
+        </span>
+        <h3>{{ services.drink_alcohol.name }}</h3>
+        <iframe width="80%" height="400" ng-src="{{trustSrc(services.drink_alcohol.url_video)}}" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="col-lg-6 col-xs-12">
+      <div class="drink-no-alc">
+        <span class="title">
+          <img src="img/drinks/lemonade.png" alt="">Alcohol free Drink
+        </span>
+        <h3>{{ services.drink_not_alcohol.name }}</h3>
+        <iframe width="80%" height="400" ng-src="{{trustSrc(services.drink_not_alcohol.url_video)}}" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</div>
