@@ -133,18 +133,19 @@
         </div>
         <div class="slide"></div>
     </div>
-    <div class="sticky-input row">
-      <div class="col-lg-12 col-sm-12 col-xs-12">
-          <div class="effectwrap">
-              <input class="effect-9" type="text" placeholder="Placeholder Text">
-              <span class="focus-border">
-              <i></i>
-          </span>
-          </div>
-      </div>
-      <div class="buttonRec">
-          <div class="innerRec">
-          </div>
-      </div>
+
+<div style="width: 100%; position: fixed; bottom: 0; z-index: 2; text-align: center;" id="openResearch"> <img  style="width: 40px;" src="/img/1.svg"> </img> </div>
+<div class="sticky-input row" style="display: none; ">
+    <div class="col-lg-12 col-sm-12 col-xs-12">
+        <div class="effectwrap">
+            <input class="effect-9" type="text" placeholder="Dite &quot;Météo à&quot; + nom de la ville !"  ng-keypress="keyPress($event)" ng-model="inputSearch">
+            <span class="focus-border">
+            <i></i>
+        </span>
+        </div>
+    </div>
+    <div class="buttonRec" ng-click="switchRecognition()">
+        <div class="innerRec">
+        </div>
     </div>
 </div>

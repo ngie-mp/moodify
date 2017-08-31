@@ -14,3 +14,15 @@ $(function () {
 $(document).on('click', ".buttonRec", function () {
   $(this).toggleClass("active");
 });
+
+$(document).on('click', '#openResearch', function(){
+  if($(".sticky-input").is(":visible")){
+    $(".sticky-input").hide()
+    $("#openResearch img").css({'transform': 'rotate(0deg)'});
+    $("#openResearch").css('bottom', '0');
+  }else{
+    $(".sticky-input").show()
+    $("#openResearch img").css({'transform': 'rotate(-180deg)'});
+    $("#openResearch").css('bottom', '142px');
+  }
+})
