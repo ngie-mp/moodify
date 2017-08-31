@@ -220,6 +220,60 @@ input[type="radio"][name="tabs"] {
       font-size: 0.6em; }
       .tab-wrap label img {
         width: 6%; } }
+.searched-title {
+  color: #f6f6f6;
+  font-size: 2em;
+  font-weight: 300;
+  margin-bottom: 1em; }
+  .searched-title span {
+    font-style: italic;
+    font-weight: 600; }
+
+.r-wrap {
+  padding-left: 0;
+  padding-right: 0;
+  background: #ffffff;
+  height: 240px;
+  overflow: hidden;
+  margin-bottom: 2em; }
+  .r-wrap .title {
+    font-size: 1.5em;
+    margin: 0.5em 0;
+    text-align: center;
+    text-transform: uppercase; }
+  .r-wrap h2, .r-wrap h3 {
+    margin: 0; }
+  .r-wrap .r-pic {
+    padding-left: 0;
+    padding-right: 0; }
+    .r-wrap .r-pic img {
+      width: 100%; }
+  .r-wrap .recipe-detail {
+    color: #363636;
+    text-align: left; }
+    .r-wrap .recipe-detail .box {
+      padding-left: 1em; }
+    .r-wrap .recipe-detail .bx {
+      border-right: 1px #d4d4d4 solid;
+      font-weight: 600; }
+      .r-wrap .recipe-detail .bx:last-child {
+        border-right: none; }
+      .r-wrap .recipe-detail .bx span {
+        display: block;
+        padding: 0.2em  0.5em; }
+      .r-wrap .recipe-detail .bx .cost {
+        background: url("../img/cost.png");
+        background-repeat: no-repeat;
+        background-position-x: 20%; }
+      .r-wrap .recipe-detail .bx .level {
+        background: url("../img/level.png");
+        background-repeat: no-repeat;
+        background-position-x: 20%; }
+      .r-wrap .recipe-detail .bx .duration {
+        background: url("../img/duration.png");
+        background-repeat: no-repeat;
+        background-position-x: 20%; }
+
 .row {
   margin-left: 0 !important;
   margin-right: 0 !important; }
@@ -253,6 +307,12 @@ input[type="radio"][name="tabs"] {
   padding-top: 40px;
   opacity: 1;
   transition: all .5s ease; }
+  .nav-login li {
+    font-size: 18px;
+    display: inline;
+    text-transform: uppercase;
+    padding-right: 35px;
+    color: #ffffff; }
 
 .links {
   text-align: center; }
@@ -260,13 +320,6 @@ input[type="radio"][name="tabs"] {
 .nav-up {
   transform: translateY(-100px);
   opacity: 0; }
-
-li {
-  font-size: 18px;
-  display: inline;
-  text-transform: uppercase;
-  padding-right: 35px;
-  color: #ffffff; }
 
 .signin-active a {
   padding-bottom: 10px;
@@ -629,6 +682,22 @@ textarea {
     padding-left: 0; }
     .user-info .user-name {
       margin-left: 0.25em; }
+
+  .searched-title {
+    padding: 0.5em;
+    font-size: 1.5em; }
+
+  .r-wrap {
+    height: 80vh; }
+    .r-wrap .recipe-detail .bx .cost {
+      background-position-x: 5%;
+      padding: 0.2em  1em; }
+    .r-wrap .recipe-detail .bx .level {
+      background-position-x: 5%;
+      padding: 0.2em  1em; }
+    .r-wrap .recipe-detail .bx .duration {
+      background-position-x: 5%;
+      padding: 0.2em  1.8em; }
 
   .links li {
     padding-right: 0; } }

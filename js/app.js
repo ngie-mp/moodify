@@ -36,6 +36,10 @@ app.config(function($routeProvider, $locationProvider) {
       templateUrl: 'partials/home.html',
       controller : 'resultsCtrl'
     }).
+    when('/recipe-detail/', {
+      templateUrl: 'partials/recipe-detail.html',
+      controller: 'resultsCtrl'
+    }).
     when('/logout/', {
       resolve: {
         deadResolve: function($location, user) {
