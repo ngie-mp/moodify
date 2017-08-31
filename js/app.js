@@ -268,20 +268,22 @@ app.controller('homeCtrl', function parentCtrl($scope, $rootScope, $http, $sce, 
     return $sce.trustAsResourceUrl(src);
   }
 
-  var ville = storage.getStorage('weather_ville');
-  $rootScope.showloader = true;
-  $http.get(API_URL + '/api/home/'+ville).then(function (response) {
-    if (response.data.return_code == 0) {
-      $rootScope.services = response.data.returns;
-      console.log(response.data);
-      $rootScope.showloader = false;
-      $(".sticky-input").hide();
-      $("#openResearch img").css({'transform': 'rotate(0deg)'});
-      $("#openResearch").css('bottom', '0');
-    } else {
-      alert('error : ' + response.data.error);
-    }
-  });
+  if($rootScope.pageAccueil == true){
+    var ville = storage.getStorage('weather_ville');
+    $rootScope.showloader = true;
+    $http.get(API_URL + '/api/home/'+ville).then(function (response) {
+      if (response.data.return_code == 0) {
+        $rootScope.services = response.data.returns;
+        console.log(response.data);
+        $rootScope.showloader = false;
+        $(".sticky-input").hide();
+        $("#openResearch img").css({'transform': 'rotate(0deg)'});
+        $("#openResearch").css('bottom', '0');
+      } else {
+        alert('error : ' + response.data.error);
+      }
+    });
+  }
 
   // Recognition
   var recognition;
@@ -455,5 +457,7 @@ app.controller('homeCtrl', function parentCtrl($scope, $rootScope, $http, $sce, 
     $("#openResearch img").css({'transform': 'rotate(0deg)'});
     $("#openResearch").css('bottom', '0');
   }
+
+  $rootScope.pageAccueil = true;
 
 });
