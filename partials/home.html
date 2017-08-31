@@ -22,9 +22,8 @@
         <div class="col-lg-6 col-xs-6">
             <div class="review">
                 <img src="/img/weather/raindrop.png" alt="">
-                <span>{{ services.weather.humidity }}</span>
-                <img src="/img/weather/wind.png" alt="">
-                <span id="wind_ville">16 km/h NE</span>
+                <span>{{ services.weather.humidity }} %</span>
+                <span id="wind_ville"> <img src="/img/weather/wind.png" alt=""> {{ services.weather.wind }}</span>
             </div>
         </div>
         <div class="col-lg-6 col-xs-6 temp-wrap">
@@ -38,9 +37,9 @@
                   {{ services.weather.ville }}
                 </div>
                 <div id="date">
-                    <span class="time" id="heure_ville">17:00</span>
+                    <span class="time" id="heure_ville">{{ datenow }}</span>
                 </div>
-                <span id="statut_ville" class="status"></span>
+                <span id="statut_ville" class="status">{{ services.weather.condition }}</span>
             </div>
         </div>
     </div>

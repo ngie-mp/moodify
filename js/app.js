@@ -60,7 +60,7 @@ app.config(function ($routeProvider, $locationProvider) {
       templateUrl: 'partials/detail-food.html',
       controller: 'homeCtrl'
     }).
-    when('/detailSerie/', {
+    when('/detailUpcomingMovies/', {
       resolve: {
         check: function ($location, user) {
           if (!user.isUserLoggedIn()) {
@@ -68,7 +68,29 @@ app.config(function ($routeProvider, $locationProvider) {
           }
         },
       },
-      templateUrl: 'partials/home.html',
+      templateUrl: 'partials/detail-upcoming-movies.html',
+      controller: 'homeCtrl'
+    }).
+    when('/detailTV/', {
+      resolve: {
+        check: function ($location, user) {
+          if (!user.isUserLoggedIn()) {
+            $location.path('/');
+          }
+        },
+      },
+      templateUrl: 'partials/detail-tv.html',
+      controller: 'homeCtrl'
+    }).
+    when('/detailActivity/', {
+      resolve: {
+        check: function ($location, user) {
+          if (!user.isUserLoggedIn()) {
+            $location.path('/');
+          }
+        },
+      },
+      templateUrl: 'partials/activity.html',
       controller: 'homeCtrl'
     }).
     when('/home/', {
@@ -238,6 +260,10 @@ app.controller('homeCtrl', function parentCtrl($scope, $rootScope, $http, $sce, 
   $scope.title = 'result';
   $scope.user = user.getUser();
 
+  var dt = new Date();
+	var time = dt.getHours() + ":" + dt.getMinutes();
+	$scope.datenow = time;
+
   $rootScope.trustSrc = function (src) {
     return $sce.trustAsResourceUrl(src);
   }
@@ -372,6 +398,45 @@ app.controller('homeCtrl', function parentCtrl($scope, $rootScope, $http, $sce, 
           //$rootScope.showloader = false;
           hideSearchBar();
           $location.path('/detailFood/');
+        } else {
+          alert('error : ' + response.data.error);
+        }
+      });
+    }else if(action == "upcomingMovies"){
+      //$rootScope.showloader = true;
+      $http.get(API_URL + '/api/upcomingMovies/').then(function (response) {
+        if (response.data.return_code == 0) {
+          $rootScope.drinks = response.data.returns;
+          console.log(response.data);
+          //$rootScope.showloader = false;
+          hideSearchBar();
+          $location.path('/detailUpcomingMovies/');
+        } else {
+          alert('error : ' + response.data.error);
+        }
+      });
+    }else if(action == "TV"){
+      //$rootScope.showloader = true;
+      $http.get(API_URL + '/api/TV/'+newParameter).then(function (response) {
+        if (response.data.return_code == 0) {
+          $rootScope.drinks = response.data.returns;
+          console.log(response.data);
+          //$rootScope.showloader = false;
+          hideSearchBar();
+          $location.path('/detailTV/');
+        } else {
+          alert('error : ' + response.data.error);
+        }
+      });
+    }else if(action == "activity"){
+      //$rootScope.showloader = true;
+      $http.get(API_URL + '/api/activity/'+newParameter).then(function (response) {
+        if (response.data.return_code == 0) {
+          $rootScope.drinks = response.data.returns;
+          console.log(response.data);
+          //$rootScope.showloader = false;
+          hideSearchBar();
+          $location.path('/detailActivity/');
         } else {
           alert('error : ' + response.data.error);
         }
