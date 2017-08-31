@@ -272,7 +272,7 @@ app.controller('homeCtrl', function parentCtrl($scope, $rootScope, $http, $sce, 
     return $sce.trustAsResourceUrl(src);
   }
 
-  if($rootScope.pageAccueil == true){
+  //if($rootScope.pageAccueil == true){
     var ville = storage.getStorage('weather_ville');
     $rootScope.showloader = true;
     $http.get(API_URL + '/api/home/'+ville).then(function (response) {
@@ -287,7 +287,7 @@ app.controller('homeCtrl', function parentCtrl($scope, $rootScope, $http, $sce, 
         alert('error : ' + response.data.error);
       }
     });
-  }
+  //}
 
   // Recognition
   var recognition;
