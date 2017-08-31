@@ -22,6 +22,5 @@ $(document).on('click', '#openResearch', function(){
     $("#openResearch").css('bottom', '0');
   }else{
     $(".sticky-input").show()
-    $("#openResearch").css();
   }
 })
