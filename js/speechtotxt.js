@@ -56,7 +56,7 @@ app.controller('speechtCtrl', function speechtCtrl($scope, $rootScope, $http, $l
         var text = $scope.inputSearch;
         var non_compris = "";
 
-        var req = {
+        /*var req = {
             method: 'POST',
             url: URL_SPEECH_TO_TEXT + "query?v=20150910",
             headers: {
@@ -64,6 +64,15 @@ app.controller('speechtCtrl', function speechtCtrl($scope, $rootScope, $http, $l
                 "Authorization": "Bearer " + TOKEN_SPEECH_TO_TEXT
             },
             data: JSON.stringify({ query: text, lang: "en", sessionId: "somerandomthing" })
+        }*/
+
+        var req = {
+            method: 'POST',
+            url: API_URL + '/api/speech/',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+              },
+            data: 'text=' + text
         }
 
         $http(req).then(function (response) {
