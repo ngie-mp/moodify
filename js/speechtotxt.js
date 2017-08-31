@@ -56,7 +56,7 @@ app.controller('speechtCtrl', function speechtCtrl($scope, $rootScope, $http, $l
         var text = $scope.inputSearch;
         var non_compris = "";
 
-        /*var req = {
+        var req = {
             method: 'POST',
             url: URL_SPEECH_TO_TEXT + "query?v=20150910",
             headers: {
@@ -64,21 +64,12 @@ app.controller('speechtCtrl', function speechtCtrl($scope, $rootScope, $http, $l
                 "Authorization": "Bearer " + TOKEN_SPEECH_TO_TEXT
             },
             data: JSON.stringify({ query: text, lang: "en", sessionId: "somerandomthing" })
-        }*/
-
-        var req = {
-            method: 'POST',
-            url: API_URL + '/api/speech/',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-              },
-            data: 'text=' + text
         }
 
         $http(req).then(function (response) {
             console.log('send success');
             console.log(response);
-            var parameter = response.data.result.parameters.geocityfr;
+            var parameter = response.data.result.parameters.parameter;
             var intent = response.data.result.metadata.intentName;
             var speech = response.data.result.fulfillment.speech;
             actionSpeech(intent, parameter);
@@ -90,30 +81,19 @@ app.controller('speechtCtrl', function speechtCtrl($scope, $rootScope, $http, $l
 
     function actionSpeech(action, parameter) {
         if (action == "weather") {
-            storage.setStorage('weather_ville', newParameter);
-            $rootScope.showloader = true;
-            $http.get(API_URL + '/api/home/'+parameter).then(function (response) {
-              if (response.data.return_code == 0) {
-                $rootScope.services = response.data.returns;
-                console.log(response.data);
-                $rootScope.showloader = false;
-                $location.path('/home/');
-              } else {
-                alert('error : ' + response.data.error);
-              }
-            });
-        }else if(action == "drinks"){
-            //$rootScope.showloader = true;
-            $http.get(API_URL + '/api/drinks/'+parameter).then(function (response) {
-              if (response.data.return_code == 0) {
-                $rootScope.drinks = response.data.returns;
-                console.log(response.data);
-                //$rootScope.showloader = false;
-              } else {
-                alert('error : ' + response.data.error);
-              }
-            });
-          }
+          storage.setStorage('weather_ville', parameter);
+          $rootScope.showloader = true;
+          $http.get(API_URL + '/api/home/'+parameter).then(function (response) {
+            if (response.data.return_code == 0) {
+              $rootScope.services = response.data.returns;
+              console.log(response.data);
+              $rootScope.showloader = false;
+              $location.path('/home/');
+            } else {
+              alert('error : ' + response.data.error);
+            }
+          });
+        }
     }
 
     function talkResponse(talk_text) {

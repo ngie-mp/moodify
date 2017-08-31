@@ -1,4 +1,4 @@
-const API_URL = "http://api.moodify.hackaton";
+const API_URL = "http://api.moodify.dev";
 const URL_SPEECH_TO_TEXT = "https://api.api.ai/v1/";
 const TOKEN_SPEECH_TO_TEXT = "4b8289d60d15475f8380de1d4086aff6";
 
@@ -26,6 +26,50 @@ app.config(function ($routeProvider, $locationProvider) {
       },
       templateUrl: 'partials/search.html',
       controller: 'speechtCtrl'
+    }).
+    when('/home/', {
+      resolve: {
+        check: function ($location, user) {
+          if (!user.isUserLoggedIn()) {
+            $location.path('/');
+          }
+        },
+      },
+      templateUrl: 'partials/home.html',
+      controller: 'homeCtrl'
+    }).
+    when('/detailDrinks/', {
+      resolve: {
+        check: function ($location, user) {
+          if (!user.isUserLoggedIn()) {
+            $location.path('/');
+          }
+        },
+      },
+      templateUrl: 'partials/detail-drinks.html',
+      controller: 'homeCtrl'
+    }).
+    when('/detailFood/', {
+      resolve: {
+        check: function ($location, user) {
+          if (!user.isUserLoggedIn()) {
+            $location.path('/');
+          }
+        },
+      },
+      templateUrl: 'partials/detail-food.html',
+      controller: 'homeCtrl'
+    }).
+    when('/detailSerie/', {
+      resolve: {
+        check: function ($location, user) {
+          if (!user.isUserLoggedIn()) {
+            $location.path('/');
+          }
+        },
+      },
+      templateUrl: 'partials/home.html',
+      controller: 'homeCtrl'
     }).
     when('/home/', {
       resolve: {
@@ -198,8 +242,22 @@ app.controller('homeCtrl', function parentCtrl($scope, $rootScope, $http, $sce, 
     return $sce.trustAsResourceUrl(src);
   }
 
-  // Recognition
+  var ville = storage.getStorage('weather_ville');
+  $rootScope.showloader = true;
+  $http.get(API_URL + '/api/home/'+ville).then(function (response) {
+    if (response.data.return_code == 0) {
+      $rootScope.services = response.data.returns;
+      console.log(response.data);
+      $rootScope.showloader = false;
+      $(".sticky-input").hide();
+      $("#openResearch img").css({'transform': 'rotate(0deg)'});
+      $("#openResearch").css('bottom', '0');
+    } else {
+      alert('error : ' + response.data.error);
+    }
+  });
 
+  // Recognition
   var recognition;
 
   $scope.switchRecognition = function () {
@@ -246,7 +304,7 @@ app.controller('homeCtrl', function parentCtrl($scope, $rootScope, $http, $sce, 
   }
 
   function setInput(text) {
-    //$scope.inputSearch = null
+    $scope.inputSearch = null
     send();
   }
 
@@ -287,6 +345,7 @@ app.controller('homeCtrl', function parentCtrl($scope, $rootScope, $http, $sce, 
           $rootScope.services = response.data.returns;
           console.log(response.data);
           $rootScope.showloader = false;
+          hideSearchBar();
         } else {
           alert('error : ' + response.data.error);
         }
@@ -298,6 +357,21 @@ app.controller('homeCtrl', function parentCtrl($scope, $rootScope, $http, $sce, 
           $rootScope.drinks = response.data.returns;
           console.log(response.data);
           //$rootScope.showloader = false;
+          hideSearchBar();
+          $location.path('/detailDrinks/');
+        } else {
+          alert('error : ' + response.data.error);
+        }
+      });
+    }else if(action == "food"){
+      //$rootScope.showloader = true;
+      $http.get(API_URL + '/api/food/'+newParameter).then(function (response) {
+        if (response.data.return_code == 0) {
+          $rootScope.drinks = response.data.returns;
+          console.log(response.data);
+          //$rootScope.showloader = false;
+          hideSearchBar();
+          $location.path('/detailFood/');
         } else {
           alert('error : ' + response.data.error);
         }
@@ -306,10 +380,15 @@ app.controller('homeCtrl', function parentCtrl($scope, $rootScope, $http, $sce, 
   }
 
   function talkResponse(talk_text) {
-    ;
     synth = window.speechSynthesis;
     var utterThis = new SpeechSynthesisUtterance(talk_text);
     synth.speak(utterThis);
+  }
+
+  function hideSearchBar(){
+    $(".sticky-input").hide();
+    $("#openResearch img").css({'transform': 'rotate(0deg)'});
+    $("#openResearch").css('bottom', '0');
   }
 
 });
