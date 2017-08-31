@@ -227,6 +227,12 @@ input[type="radio"][name="tabs"] {
     }
   }
   .drink-content {
+    .drink-alc {
+      background: #ffffff;
+    }
+    .drink-no-alc {
+      background: #ffffff;
+    }
     iframe {
       padding: 2em;
     }
@@ -361,7 +367,7 @@ input[type="radio"][name="tabs"] {
     padding-left: 0;
     padding-right: 0;
     img {
-      width: 100%;
+      width: 35%;%;
     }
   }
 }
