@@ -17,7 +17,7 @@
           <li class="signup-inactive"><a class="btn-login">S'inscrire</a></li>
         </ul>
       </div>
-      <div class="form-wrap row">
+      <div class="form-wrap">
         <form class="form-signin" id="form_connexion">
           <label for="username">Email</label>
           <div class="input email">
@@ -35,28 +35,22 @@
               Sign up using GOOGLE +
             </a>
           </div>
-
         </form>
         <form class="form-signup">
           <label for="fullname">Firstname</label>
           <input class="form-styling" type="text" ng-model="firstname" required>
-
           <label for="email">Lastname</label>
           <input class="form-styling" type="text" ng-model="lastname" required>
-
           <label for="email">Email</label>
           <input class="form-styling" type="text" ng-model="email" required>
-
           <label for="password">Password</label>
           <input class="form-styling" type="password" ng-model="password"
-                  required equalsPassword="{{password_confirm}}">
-
+                 required equalsPassword="{{password_confirm}}">
           <label for="confirmpassword">Confirm password</label>
           <input class="form-styling"
-                type="password"
-                ng-model="password_confirm"
-                required equalsPassword="{{password}}">
-
+                 type="password"
+                 ng-model="password_confirm"
+                 required equalsPassword="{{password}}">
           <div class="btn-animate">
             <a ng-click="register()" class="btn-signup">S'inscrire</a>
           </div>

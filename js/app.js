@@ -1,4 +1,4 @@
-const API_URL = "http://api.moodify.dev";
+const API_URL = "http://06755374.ngrok.io/";
 
 var app = angular.module('MoodApp', ['ngRoute', 'ngSanitize']);
 app.config(function($routeProvider, $locationProvider) {
