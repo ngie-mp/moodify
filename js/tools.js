@@ -24,3 +24,26 @@ $(document).on('click', '#openResearch', function(){
     $(".sticky-input").show()
   }
 });
+
+$(document).ready(function() {
+if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+})
+
+function showPosition(position) {
+		$.ajax({ url:'http://maps.googleapis.com/maps/api/geocode/json?latlng='+position.coords.latitude+','+position.coords.longitude+'&sensor=true',
+         success: function(data){
+	         for (var i = 0; i < data.results[4].address_components.length; i++) {
+    			 	for (var j = 0; j < data.results[4].address_components[i].types.length; j++) {
+        			if(data.results[4].address_components[i].types[j] == 'locality') {
+            		var city_name = data.results[4].address_components[i].long_name;
+                $("#body_corp input.ng-pristine").val("météo à " + city_name)
+        		}
+    			}
+				}
+		   }
+		})
+  }
