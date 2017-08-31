@@ -1,6 +1,7 @@
 app.controller('speechtCtrl', function speechtCtrl($scope, $rootScope, $http, $location, user, storage) {
     $scope.title = 'search';
     $scope.user = user.getUser();
+    $rootScope.pageAccueil = false;
 
     var recognition;
 
@@ -89,6 +90,66 @@ app.controller('speechtCtrl', function speechtCtrl($scope, $rootScope, $http, $l
               console.log(response.data);
               $rootScope.showloader = false;
               $location.path('/home/');
+            } else {
+              alert('error : ' + response.data.error);
+            }
+          });
+        }else if(action == "drinks"){
+          //$rootScope.showloader = true;
+          $http.get(API_URL + '/api/drinks/'+parameter).then(function (response) {
+            if (response.data.return_code == 0) {
+              $rootScope.drinks = response.data.returns;
+              console.log(response.data);
+              $rootScope.showloader = false;
+              $location.path('/detailDrinks/');
+            } else {
+              alert('error : ' + response.data.error);
+            }
+          });
+        }else if(action == "food"){
+          //$rootScope.showloader = true;
+          $http.get(API_URL + '/api/food/'+parameter).then(function (response) {
+            if (response.data.return_code == 0) {
+              $rootScope.drinks = response.data.returns;
+              console.log(response.data);
+              $rootScope.showloader = false;
+              $location.path('/detailFood/');
+            } else {
+              alert('error : ' + response.data.error);
+            }
+          });
+        }else if(action == "upcomingMovies"){
+          //$rootScope.showloader = true;
+          $http.get(API_URL + '/api/upcomingMovies/').then(function (response) {
+            if (response.data.return_code == 0) {
+              $rootScope.drinks = response.data.returns;
+              console.log(response.data);
+              $rootScope.showloader = false;
+              $location.path('/detailUpcomingMovies/');
+            } else {
+              alert('error : ' + response.data.error);
+            }
+          });
+        }else if(action == "TV"){
+          //$rootScope.showloader = true;
+          $http.get(API_URL + '/api/TV/'+parameter).then(function (response) {
+            if (response.data.return_code == 0) {
+              $rootScope.drinks = response.data.returns;
+              console.log(response.data);
+              $rootScope.showloader = false;
+              $location.path('/detailTV/');
+            } else {
+              alert('error : ' + response.data.error);
+            }
+          });
+        }else if(action == "activity"){
+          //$rootScope.showloader = true;
+          $http.get(API_URL + '/api/activity/'+parameter).then(function (response) {
+            if (response.data.return_code == 0) {
+              $rootScope.drinks = response.data.returns;
+              console.log(response.data);
+              $rootScope.showloader = false;
+              $location.path('/detailActivity/');
             } else {
               alert('error : ' + response.data.error);
             }
