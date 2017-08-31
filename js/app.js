@@ -399,7 +399,7 @@ app.controller('homeCtrl', function parentCtrl($scope, $rootScope, $http, $sce, 
       //$rootScope.showloader = true;
       $http.get(API_URL + '/api/food/'+newParameter).then(function (response) {
         if (response.data.return_code == 0) {
-          $rootScope.drinks = response.data.returns;
+          $rootScope.food = response.data.returns.recipes;
           console.log(response.data);
           //$rootScope.showloader = false;
           hideSearchBar();
@@ -412,7 +412,7 @@ app.controller('homeCtrl', function parentCtrl($scope, $rootScope, $http, $sce, 
       //$rootScope.showloader = true;
       $http.get(API_URL + '/api/upcomingMovies/').then(function (response) {
         if (response.data.return_code == 0) {
-          $rootScope.drinks = response.data.returns;
+          $rootScope.upcomingMovies = response.data.returns.movies;
           console.log(response.data);
           //$rootScope.showloader = false;
           hideSearchBar();
@@ -425,7 +425,7 @@ app.controller('homeCtrl', function parentCtrl($scope, $rootScope, $http, $sce, 
       //$rootScope.showloader = true;
       $http.get(API_URL + '/api/TV/'+newParameter).then(function (response) {
         if (response.data.return_code == 0) {
-          $rootScope.drinks = response.data.returns;
+          $rootScope.TV = response.data.returns.media;
           console.log(response.data);
           //$rootScope.showloader = false;
           hideSearchBar();
@@ -438,7 +438,7 @@ app.controller('homeCtrl', function parentCtrl($scope, $rootScope, $http, $sce, 
       //$rootScope.showloader = true;
       $http.get(API_URL + '/api/activity/'+newParameter).then(function (response) {
         if (response.data.return_code == 0) {
-          $rootScope.drinks = response.data.returns;
+          $rootScope.activities = response.data.returns.activities;
           console.log(response.data);
           //$rootScope.showloader = false;
           hideSearchBar();

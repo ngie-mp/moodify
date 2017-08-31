@@ -100,7 +100,8 @@ app.controller('speechtCtrl', function speechtCtrl($scope, $rootScope, $http, $l
             if (response.data.return_code == 0) {
               $rootScope.drinks = response.data.returns;
               console.log(response.data);
-              $rootScope.showloader = false;
+              //$rootScope.showloader = false;
+              hideSearchBar();
               $location.path('/detailDrinks/');
             } else {
               alert('error : ' + response.data.error);
@@ -110,9 +111,10 @@ app.controller('speechtCtrl', function speechtCtrl($scope, $rootScope, $http, $l
           //$rootScope.showloader = true;
           $http.get(API_URL + '/api/food/'+parameter).then(function (response) {
             if (response.data.return_code == 0) {
-              $rootScope.drinks = response.data.returns;
+              $rootScope.food = response.data.returns;
               console.log(response.data);
-              $rootScope.showloader = false;
+              //$rootScope.showloader = false;
+              hideSearchBar();
               $location.path('/detailFood/');
             } else {
               alert('error : ' + response.data.error);
@@ -122,9 +124,10 @@ app.controller('speechtCtrl', function speechtCtrl($scope, $rootScope, $http, $l
           //$rootScope.showloader = true;
           $http.get(API_URL + '/api/upcomingMovies/').then(function (response) {
             if (response.data.return_code == 0) {
-              $rootScope.drinks = response.data.returns;
+              $rootScope.upcomingMovies = response.data.returns;
               console.log(response.data);
-              $rootScope.showloader = false;
+              //$rootScope.showloader = false;
+              hideSearchBar();
               $location.path('/detailUpcomingMovies/');
             } else {
               alert('error : ' + response.data.error);
@@ -134,9 +137,10 @@ app.controller('speechtCtrl', function speechtCtrl($scope, $rootScope, $http, $l
           //$rootScope.showloader = true;
           $http.get(API_URL + '/api/TV/'+parameter).then(function (response) {
             if (response.data.return_code == 0) {
-              $rootScope.drinks = response.data.returns;
+              $rootScope.TV = response.data.returns;
               console.log(response.data);
-              $rootScope.showloader = false;
+              //$rootScope.showloader = false;
+              hideSearchBar();
               $location.path('/detailTV/');
             } else {
               alert('error : ' + response.data.error);
@@ -146,9 +150,10 @@ app.controller('speechtCtrl', function speechtCtrl($scope, $rootScope, $http, $l
           //$rootScope.showloader = true;
           $http.get(API_URL + '/api/activity/'+parameter).then(function (response) {
             if (response.data.return_code == 0) {
-              $rootScope.drinks = response.data.returns;
+              $rootScope.activities = response.data.returns;
               console.log(response.data);
-              $rootScope.showloader = false;
+              //$rootScope.showloader = false;
+              hideSearchBar();
               $location.path('/detailActivity/');
             } else {
               alert('error : ' + response.data.error);
