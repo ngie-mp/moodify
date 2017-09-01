@@ -152,44 +152,62 @@ input[type="radio"][name="tabs"] {
     line-height: 130%;
     display: none;
     margin-bottom: 10em; }
-  .tab-label-content .food-content .api-img {
-    display: block;
-    overflow: hidden;
-    width: 300px;
-    height: 200px;
-    margin: 0 auto; }
-    .tab-label-content .food-content .api-img img {
-      max-height: 100%;
-      margin-right: 0.5em; }
-  .tab-label-content .food-content .food-wrap {
-    color: #363636; }
-    .tab-label-content .food-content .food-wrap .info-food .btn a {
-      text-align: center; }
-    .tab-label-content .food-content .food-wrap .title {
-      text-transform: uppercase;
-      font-size: 1em; }
-    .tab-label-content .food-content .food-wrap .bx-wrap {
-      margin-top: 2em; }
-      .tab-label-content .food-content .food-wrap .bx-wrap .bx {
-        border-right: 1px #d4d4d4 solid;
+  .tab-label-content .food-content {
+    margin-top: 1.5em; }
+    .tab-label-content .food-content .r-wrap {
+      height: 450px; }
+    .tab-label-content .food-content .api-img {
+      display: block;
+      overflow: hidden;
+      width: 300px;
+      height: 200px;
+      margin: 0 auto; }
+      .tab-label-content .food-content .api-img img {
+        max-height: 100%;
+        margin-right: 0.5em; }
+    .tab-label-content .food-content .food-wrap {
+      color: #363636;
+      margin: 2em 0;
+      border-right: solid rgba(51, 51, 51, 0.22) 1px; }
+      .tab-label-content .food-content .food-wrap:last-child {
+        border-right: 0px; }
+      .tab-label-content .food-content .food-wrap .info-food .btn a {
+        text-align: center;
+        padding: 6px 0 6px 0;
+        background: #00738a;
+        color: #fff;
+        border-radius: 2px;
+        width: 100%;
+        border: none;
+        margin-top: 3em;
+        display: block;
+        text-decoration: none;
         font-weight: 600; }
-        .tab-label-content .food-content .food-wrap .bx-wrap .bx:last-child {
-          border-right: none; }
-        .tab-label-content .food-content .food-wrap .bx-wrap .bx span {
-          display: block;
-          padding: 0.2em 2.5em; }
-        .tab-label-content .food-content .food-wrap .bx-wrap .bx .cost {
-          background: url("../img/cost.png");
-          background-repeat: no-repeat;
-          background-position-x: 10%; }
-        .tab-label-content .food-content .food-wrap .bx-wrap .bx .level {
-          background: url("../img/level.png");
-          background-repeat: no-repeat;
-          background-position-x: 20%; }
-        .tab-label-content .food-content .food-wrap .bx-wrap .bx .duration {
-          background: url("../img/duration.png");
-          background-repeat: no-repeat;
-          background-position-x: 20%; }
+      .tab-label-content .food-content .food-wrap .title {
+        text-transform: uppercase;
+        font-size: 1em; }
+      .tab-label-content .food-content .food-wrap .bx-wrap {
+        margin-top: 2em; }
+        .tab-label-content .food-content .food-wrap .bx-wrap .bx {
+          border-right: 1px #d4d4d4 solid;
+          font-weight: 600; }
+          .tab-label-content .food-content .food-wrap .bx-wrap .bx:last-child {
+            border-right: none; }
+          .tab-label-content .food-content .food-wrap .bx-wrap .bx span {
+            display: block;
+            padding: 0.2em 2.5em; }
+          .tab-label-content .food-content .food-wrap .bx-wrap .bx .cost {
+            background: url("../img/cost.png");
+            background-repeat: no-repeat;
+            background-position-x: 10%; }
+          .tab-label-content .food-content .food-wrap .bx-wrap .bx .level {
+            background: url("../img/level.png");
+            background-repeat: no-repeat;
+            background-position-x: 20%; }
+          .tab-label-content .food-content .food-wrap .bx-wrap .bx .duration {
+            background: url("../img/duration.png");
+            background-repeat: no-repeat;
+            background-position-x: 20%; }
   .tab-label-content .drink-content .drink-alc {
     background: #ffffff; }
   .tab-label-content .drink-content .drink-no-alc {

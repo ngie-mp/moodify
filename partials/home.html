@@ -55,9 +55,9 @@
               <span>Food</span>
             </label>
             <div class="tab-content food-content">
-                <div class="row center-lg center-xs r-wrap" style="height: 400px; background: rgba(255, 255, 255, 0.77);">
+                <div class="row center-lg center-xs r-wrap">
                     <!--<div ng-if="services.recipe != 'limite atteinte'">-->
-                        <div class="col-lg-4 food-wrap" ng-repeat="recipe in services.recipe" style="border-right: solid #333 1px;">
+                        <div class="col-lg-4 food-wrap" ng-repeat="recipe in services.recipe">
                             <div class="">
                                 <h2 class="title">{{recipe.title }}</h2>
                                 <div class="col-lg-12 row bx-wrap">
@@ -77,16 +77,8 @@
                                     <img src="{{ recipe.image }}" alt="recipe {{recipe.title }}">
                                 </div>
                                 <div class="info-food">
-                                    <div class="btn">                                        
-                                        <a href="{{ recipe.source_url }}" target="_blank"><button style="padding:6px 0 6px 0;
-                                            font:bold 13px Arial;
-                                            background:#478bf9;
-                                            color:#fff;
-                                            border-radius:2px;
-                                            width:100px;
-                                            border:none;
-                                            cursor: pointer;
-                                            margin-top: 10px;">Voir recette</button></a>
+                                    <div class="btn">
+                                        <a href="{{ recipe.source_url }}" target="_blank">Voir recette</a>
                                     </div>
                                 </div>
                             </div>
