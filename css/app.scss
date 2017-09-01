@@ -171,6 +171,10 @@ input[type="radio"][name="tabs"] {
     margin-bottom: 10em;
   }
   .food-content {
+    margin-top: 1.5em;
+    .r-wrap {
+      height: 450px;
+    }
     .api-img {
       display: block;
       overflow: hidden;
@@ -184,10 +188,25 @@ input[type="radio"][name="tabs"] {
     }
     .food-wrap {
       color: #363636;
+      margin: 2em 0;
+      border-right: solid rgba(51, 51, 51, 0.22) 1px;
+      &:last-child {
+        border-right: 0px;
+      }
       .info-food {
         .btn {
           a {
             text-align: center;
+            padding:6px 0 6px 0;
+            background:$cyan;
+            color:#fff;
+            border-radius:2px;
+            width:100%;
+            border:none;
+            margin-top: 3em;
+            display: block;
+            text-decoration: none;
+            font-weight: 600;
           }
         }
       }
